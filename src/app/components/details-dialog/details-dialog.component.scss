@@ -1,0 +1,38 @@
+.container {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 10% 80% 10%;
+
+  .header {
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+  }
+
+  .content {
+    display: grid;
+    grid-template-columns: 50% 10%;
+    direction: rtl;
+
+    .text {
+      font-family: sans-serif;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 250px;
+    }
+  }
+
+  .footer {
+    display: flex;
+    justify-content: center;
+
+    .button {
+      font-weight: bold;
+      border: 2px solid black;
+    }
+  }
+}
+
