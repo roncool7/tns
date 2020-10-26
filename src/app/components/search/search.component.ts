@@ -1,6 +1,8 @@
 import { SearchService } from './../../services/search.service';
 import { ProductModel } from './../../models/product-model';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {DetailsDialogComponent} from "../details-dialog/details-dialog.component";
 
 
 @Component({
@@ -12,7 +14,8 @@ export class SearchComponent implements OnInit {
   public items: ProductModel[];
   public searchValue: string;
 
-  constructor(private mySearchService: SearchService) {}
+  constructor(private mySearchService: SearchService,
+              private dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -27,5 +30,14 @@ export class SearchComponent implements OnInit {
     } catch (err) {
       alert(err.message);
     }
+  }
+
+  onDetailsClicked(product) {
+    const dialogRef = this.dialog.open(DetailsDialogComponent, {
+      data: {product},
+      disableClose: true,
+      height: '400px',
+      width: '600px',
+    });
   }
 }
