@@ -1,0 +1,103 @@
+<img class="loadingImage" *ngIf="loadingImage" src="/assets/images/contact/loading.gif" alt="loading">
+<div class="contact" *ngIf="!loadingImage">
+    <app-heading>צור קשר</app-heading>
+    <hr>
+    <div class="row">
+        <div class="box">
+            <div class="icon">
+                <div class="image"><span class="material-icons">email</span></div>
+                <div class="info">
+                    <h3 class="title">אימייל</h3>
+                    <p style="margin-left: 10px;">toysnonstop1@gmail.com</p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icon">
+                <div class="image"><span class="material-icons">timer</span></div>
+                <div class="info">
+                    <h3 class="title">שעות פעילות</h3>
+                    <p>
+                        ימים ראשון עד חמישי: 9:00-20:00
+                        שישי: 9:00-14:00
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icon">
+                <div class="image"><span class="material-icons">local_phone</span></div>
+                <div class="info">
+                    <h3 class="title">טלפון</h3>
+                    <p>
+                        08-9158964
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="icon">
+                <div class="image"><span class="material-icons">location_on</span></div>
+                <div class="info">
+                    <h3 class="title">כתובת</h3>
+                    <p>
+                        תחנה מרכזית דימונה
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact form -->
+    <div class="contactUsTitle">&darr; צור איתנו קשר &darr;</div>
+    <div class="locationLeft">
+        <iframe width="100%" height="320px;" frameborder="0" style="border:0"
+            src="https://maps.google.com/maps?q=%D7%AA%D7%97%D7%A0%D7%94%20%D7%9E%D7%A8%D7%9B%D7%96%D7%99%D7%AA%20%D7%93%D7%99%D7%9E%D7%95%D7%A0%D7%94&t=&z=13&ie=UTF8&iwloc=&output=embed"
+            allowfullscreen></iframe>
+    </div>
+    <div class="imageCenter">
+        <img class="imageCenterContact" src="/assets/images/contact/contact.png" alt="marvel">
+    </div>
+    <div class="formRight">
+        <form [formGroup]="contactForm" class="contactForm" (ngSubmit)="contactForm.valid && contactSubmit()"
+            novalidate>
+
+            <mat-form-field hintLabel="ישראלי ישראלי" appearance="fill">
+                <mat-label class="inputsNames">שם מלא</mat-label>
+                <input matInput type="text" name="fullName" placeholder="שם מלא" formControlName="fullName"
+                    [(ngModel)]="contact.fullName" minlength="3" maxlength="20" required>
+                <mat-error *ngIf="contactForm.get('fullName').hasError('required')">שם מלא חסר</mat-error>
+                <mat-error *ngIf="contactForm.get('fullName').hasError('minlength')">מינימום 3 אותיות</mat-error>
+                <mat-error *ngIf="contactForm.get('fullName').hasError('pattern')">שם מלא רק אותיות בעברית</mat-error>
+            </mat-form-field><br><br>
+
+            <mat-form-field hintLabel="example@gmail.com" appearance="fill">
+                <mat-label class="inputsNames">אימייל</mat-label>
+                <input matInput type="text" name="email" placeholder="כתובת המייל" [(ngModel)]="contact.email"
+                    formControlName="email" maxlength="30" required>
+                <mat-error *ngIf="contactForm.get('email').hasError('required')">אימייל חסר</mat-error>
+                <mat-error *ngIf="contactForm.get('email').hasError('pattern')">אימייל לא תקין</mat-error>
+            </mat-form-field><br><br>
+
+            <mat-form-field hintLabel="נושא ההודעה" appearance="fill">
+                <mat-label class="inputsNames">נושא</mat-label>
+                <input matInput type="text" name="subject" placeholder="נושא" [(ngModel)]="contact.subject"
+                    formControlName="subject" minlength="2" maxlength="20" required>
+                <mat-error *ngIf="contactForm.get('subject').hasError('required')">נושא חסר</mat-error>
+                <mat-error *ngIf="contactForm.get('subject').hasError('minlength')">מינימום 2 אותיות</mat-error>
+                <mat-error *ngIf="contactForm.get('subject').hasError('pattern')">רק אותיות בעברית בנושא</mat-error>
+            </mat-form-field><br><br>
+
+            <mat-form-field hintLabel="רשום את ההודעה" appearance="fill">
+                <mat-label class="inputsNames">הודעה</mat-label>
+                <textarea matInput type="text" name="message" placeholder="הודעה" [(ngModel)]="contact.message"
+                    formControlName="message" minlength="3" maxlength="120" required>
+                    </textarea>
+                <mat-error *ngIf="contactForm.get('message')?.errors?.required">הודעה חסרה</mat-error>
+                <mat-error *ngIf="contactForm.get('message').hasError('minlength')">מינימום 3 אותיות</mat-error>
+            </mat-form-field><br><br>
+
+            <button mat-button type="submit" class="mat-raised-button mat-primary"
+            [disabled]="!contactForm.valid">צור איתנו קשר</button>
+        </form>
+    </div>
+</div>

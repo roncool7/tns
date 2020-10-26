@@ -1,0 +1,103 @@
+<div class="register">
+  <app-heading>הרשמה לאתר</app-heading>
+  <hr>
+  <mat-grid-list cols="3" class="allGrids">
+    <mat-grid-tile class="part-A">
+      <div class="registerRules">
+        <p>* אני מעל גיל 18 וקראתי את תקנון קנייה של האתר ואני מאשר את האמור בהם.</p>
+        <p>* הצעת מחיר במכירה פומבית רק למשתמשים רשומים.</p>
+        <p>* נא לרשום את הפרטים במדויק,ההרשמה חד פעמית.</p>
+        <hr>
+      </div>
+      <img class="images" src="/assets/images/register/leftSide.png" alt="left">
+    </mat-grid-tile>
+    <mat-grid-tile class="part-B-Form">
+      <form [formGroup]="registerForm" class="registerForm" (ngSubmit)="registerForm.valid && registerSubmit()"
+        novalidate>
+
+        <mat-form-field hintLabel="שם פרטי" appearance="fill">
+          <mat-label>שם פרטי</mat-label>
+          <input matInput type="text" name="First_Name" placeholder="שם פרטי" formControlName="First_Name"
+            [(ngModel)]="customer.First_Name" minlength="2" maxlength="10" required>
+          <mat-error *ngIf="registerForm.get('First_Name').hasError('required')">שם פרטי חסר</mat-error>
+          <mat-error *ngIf="registerForm.get('First_Name').hasError('minlength')">מינימום 2 אותיות</mat-error>
+          <mat-error *ngIf="registerForm.get('First_Name').hasError('pattern')">רק אותיות בעברית</mat-error>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field hintLabel="שם משפחה" appearance="fill">
+          <mat-label>שם משפחה</mat-label>
+          <input matInput type="text" name="Last_Name" placeholder="שם משפחה" formControlName="Last_Name"
+            [(ngModel)]="customer.Last_Name" minlength="2" maxlength="15" required>
+          <mat-error *ngIf="registerForm.get('Last_Name').hasError('required')">שם משפחה חסר</mat-error>
+          <mat-error *ngIf="registerForm.get('Last_Name').hasError('minlength')">מינימום 2 אותיות</mat-error>
+          <mat-error *ngIf="registerForm.get('Last_Name').hasError('pattern')">רק אותיות בעברית</mat-error>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field hintLabel="example@gmail.com" appearance="fill">
+          <mat-label>אימייל</mat-label>
+          <input matInput type="text" name="Email" placeholder="כתובת המייל" [(ngModel)]="customer.Email"
+            formControlName="Email" maxlength="30" required>
+          <mat-error *ngIf="registerForm.get('Email').hasError('required')">אימייל חסר</mat-error>
+          <mat-error *ngIf="registerForm.get('Email').hasError('pattern')">אימייל לא תקין</mat-error>
+          <mat-error *ngIf="registerForm.get('Email')?.errors?.emailExist">אימייל קיים במערכת</mat-error>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field hintLabel="פלאפון" appearance="fill">
+          <mat-label>פלאפון</mat-label>
+          <input matInput type="text" name="Phone" placeholder="פלאפון" [(ngModel)]="customer.Phone"
+            formControlName="Phone" minlength="10" maxlength="10" required>
+          <mat-error *ngIf="registerForm.get('Phone').hasError('required')">פלאפון חסר</mat-error>
+          <mat-error *ngIf="registerForm.get('Phone').hasError('pattern')">פלאפון לא תקין רק מספרים</mat-error>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field hintLabel="מינימום 3 תווים" appearance="fill">
+          <mat-label>סיסמא</mat-label>
+          <input matInput type="password" name="Password" placeholder="רשום סיסמא" [(ngModel)]="customer.Password"
+            formControlName="Password" [type]="hidePassword ? 'password':'text'" minlength="3" maxlength="20" required>
+          <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+            {{hidePassword ? 'visibility': 'visibility_off'}}
+          </mat-icon>
+          <mat-error *ngIf="registerForm.get('Password').hasError('required')">סיסמא חסרה</mat-error>
+          <mat-error *ngIf="registerForm.get('Password').hasError('minlength')">מינימום 3 תווים</mat-error>
+        </mat-form-field>
+
+        <br><br>
+        <mat-form-field hintLabel="אשר סיסמא" appearance="fill">
+          <mat-label>אשר סיסמא</mat-label>
+          <input matInput type="password" name="confirmPassword" placeholder="אשר סיסמא"
+            [(ngModel)]="customer.confirmPassword" formControlName="confirmPassword" minlength="3" maxlength="20"
+            [type]="hideConfirmPassword ? 'password':'text'" required>
+          <mat-icon matSuffix (click)="hideConfirmPassword = !hideConfirmPassword">
+            {{hideConfirmPassword ? 'visibility': 'visibility_off'}}
+          </mat-icon>
+          <mat-error *ngIf="registerForm.get('confirmPassword')?.errors?.required">אישור סיסמא חסר</mat-error>
+          <mat-error *ngIf="registerForm.get('confirmPassword').hasError('minlength')">מינימום 3 תווים</mat-error>
+          <mat-error *ngIf="registerForm.get('confirmPassword')?.errors?.notEquivalent">סיסמאות לא שוות</mat-error>
+        </mat-form-field><br><br>
+
+        <re-captcha (resolved)="resolved($event)" siteKey="6LdTXNEZAAAAAITpu7EwVH4Y8bsEJXbaaVYqvNrg"></re-captcha><br>
+
+        <button mat-button type="submit" class="mat-raised-button mat-primary registerBtn" [disabled]="!registerForm.valid || !captchaImg">הרשם
+          עכשיו!</button><br><br>
+        <div class="gotUserText">משתמש רשום?</div>
+        <button mat-button type="button" routerLink="/login" class="mat-raised-button mat-primary">הכנס עכשיו!</button>
+      </form>
+
+    </mat-grid-tile>
+    <mat-grid-tile class="part-C">
+      <div class="registerRules">
+        <p>* אנא מלא את כל הפרטים על מנת להכנס למערכת.</p>
+        <p>* כל הפרטים אשר יוזנו לאתר מאובטחים.</p>
+        <p>* ידוע לי כי המידע ישמר במאגרי מידע לצורך שירות ומשלוח תוכן פרסומי.</p>
+        <hr>
+      </div>
+      <img class="images" src="/assets/images/register/rightSide.png" alt="right">
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,44 @@
+<div class="last-products">
+    <app-navbar-left></app-navbar-left>
+    <app-heading>מוצרי חיסול</app-heading>
+    <hr>
+    <img *ngIf="loader" class="imageRobo" src="/assets/backgrounds/loading.gif" alt="טוען">
+    <div *ngIf="!loader">
+        <div class="about">
+            <img class="imageAbout" src="/assets/images/left-side-categories/last-products/lastProduct.png"
+                alt="last-products">
+            <img class="imageAbout" src="/assets/images/left-side-categories/last-products/lastProduct.png"
+                alt="last-products">
+            <p>!מבצעי חיסול - חיסול מלאי מהרו לפני שיגמר</p>
+            <img class="imageAbout" src="/assets/images/left-side-categories/last-products/lastProduct.png"
+                alt="last-products">
+            <img class="imageAbout" src="/assets/images/left-side-categories/last-products/lastProduct.png"
+                alt="last-products">
+        </div>
+        <hr>
+        <div *ngFor="let product of lastProducts" class="allProducts">
+            <mat-card>
+                <span class="product-new-label">חיסול</span>
+                <mat-card-header>
+                    <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                <div class="inline">
+                    <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                    <div class="priceBefore">₪{{product.Product_Price + 40}}</div>
+                </div>
+                <mat-card-actions>
+                    <div class="number-input">
+                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                        <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1" required>
+                        <button class="plus"
+                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                    </div>
+                    <br>
+                    <button mat-raised-button class="addToCartBtn">הוספה לעגלה</button>
+                    <button mat-raised-button color="primary">מידע נוסף</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

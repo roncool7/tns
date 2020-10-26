@@ -1,0 +1,18 @@
+import { ProductModel } from './../../../models/product-model';
+import { ProductsBrandsService } from './../../../services/products-brands.service';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-nerf',
+  templateUrl: './nerf.component.html',
+  styleUrls: ['./nerf.component.css']
+})
+export class NerfComponent implements OnInit {
+  public nerfProducts: ProductModel[];
+  constructor(private myProductsBrandsService: ProductsBrandsService) { }
+
+  async ngOnInit() {
+    this.nerfProducts = await this.myProductsBrandsService.getNerfProducts();
+  }
+
+}

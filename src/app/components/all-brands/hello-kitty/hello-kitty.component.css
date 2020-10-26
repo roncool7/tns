@@ -1,0 +1,127 @@
+.helloKittyProducts {
+  background-image: url("/assets/backgrounds/greenBg.png");
+  text-align: center;
+}
+
+/* about hello-kitty */
+.aboutHelloKitty {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 15px;
+}
+.aboutHelloKitty > p {
+  text-shadow: 1px 1px 3px white;
+}
+
+/* images */
+.imageHelloKitty1 {
+  width: 260px;
+  height: 200px;
+  box-shadow: 0 0 5px black;
+  border-radius: 50%;
+}
+.imageHelloKitty {
+  width: 200px;
+  height: 180px;
+}
+
+/* products hello-kitty */
+.allProducts {
+  display: inline-flex;
+  font-weight: bold;
+}
+.mat-card {
+  height: 320px;
+  width: 250px;
+  margin: 10px;
+  border-radius: 30px;
+  box-shadow: 5px 5px 4px black;
+  transition: all 1s ease;
+}
+.mat-card:hover {
+  box-shadow: 0 0 20px black;
+}
+.mat-card-header {
+  justify-content: center;
+}
+.mat-card-title {
+  font-size: 22px;
+  min-inline-size: max-content;
+  font-weight: bold;
+}
+
+.mat-card-image {
+  height: 150px;
+  width: 240px;
+}
+.price {
+  font-size: 20px;
+}
+.amountInput {
+  margin: 10px;
+}
+.addToCartBtn {
+  background-color: limegreen;
+  color: white;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.number-input {
+  border: 0;
+  display: inline-flex;
+}
+.number-input,
+.number-input * {
+  box-sizing: border-box;
+}
+.number-input button {
+  outline: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 5px;
+  position: relative;
+  box-shadow: 0px 0px 1px black;
+  border-radius: 50%;
+}
+.number-input button:before,
+.number-input button:after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  width: 1rem;
+  height: 2px;
+  background-color: #212121;
+  transform: translate(-50%, -50%);
+}
+.number-input button.plus:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type="number"] {
+  width: 40%;
+  font-family: sans-serif;
+  border: none;
+  border-width: 0 2px;
+  font-size: 25px;
+  height: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+}
+
+/* sold out */
+.soldOut {
+  color: white;
+  background-color: red;
+  font-size: 18px;
+  box-shadow: 0 0 0 3px white;
+}

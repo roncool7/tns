@@ -1,0 +1,130 @@
+<div class="popCreation">
+    <app-navbar-right></app-navbar-right>
+    <app-heading>מוצרי פופ ויצירה</app-heading>
+    <hr>
+    <img *ngIf="loader" class="imageRobo" src="/assets/backgrounds/loading.gif" alt="טוען">
+    <div *ngIf="!loader">
+        <div class="aboutPopCreation">
+            <img class="imageAbout" src="/assets/images/right-side-categories/pop-creation/popCreationLeft.jpg"
+                alt="popCreationLeft">
+            <p>הכירו את קטגוריית מוצרי פופ ויצירה הכי מדליקה שיש!
+                בובות ודמויות פופ ממותגים נבחרים ומגוון משחקי יצירה התורמים לפיתוח מיומנויות חשובות והתפתחות הילד.
+                כל המוצרים הכי חדשים במקום אחד! אז למה אתם מחכים
+                </p>
+            <img class="imageAbout" src="/assets/images/right-side-categories/pop-creation/popCreationRight.jpg"
+                alt="popCreationRight">
+        </div>
+        <hr>
+        <div class="categoryText">&darr; קטגוריות &darr;</div>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="כל המוצרים">
+                <div *ngFor="let product of popCreationProducts" class="allProducts">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מוצרי פופ מסדרות וסרטים">
+                <div *ngFor="let product of popCreationProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='פופ מסדרות וסרטים'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מוצרי פופ בוב ספוג">
+                <div *ngFor="let product of popCreationProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='פופ בוב ספוג'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="יצירה לילדים">
+                <div *ngFor="let product of popCreationProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='יצירה לילדים'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

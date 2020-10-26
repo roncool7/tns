@@ -1,0 +1,266 @@
+<div class="kitchens-dallhouses">
+    <app-navbar-right></app-navbar-right>
+    <app-heading>מטבחים ובתי בובות</app-heading>
+    <hr>
+    <img *ngIf="loader" class="imageRobo" src="/assets/backgrounds/loading.gif" alt="טוען">
+    <div *ngIf="!loader">
+        <div class="about-kitchens-dallhouses">
+            <img class="imageAbout"
+                src="/assets/images/right-side-categories/kitchens-dallhouses/kitchenDallhousesLeft.jpg"
+                alt="kitchenDallhousesLeft">
+            <p>הכירו את קטגוריית המטבחים ובתי בובות הכי מדליקה שיש!
+                צעצועי מטבח ובתי בובות מיוחדים ומדליקים, מטבחים, בתי בובות, ערכות של מוצרים, אביזרי מטבח חשמליים לילדים ועוד..
+                כל המוצרים הכי חדשים במקום אחד! אז למה אתם מחכים</p>
+            <img class="imageAbout"
+                src="/assets/images/right-side-categories/kitchens-dallhouses/kitchenDallhousesRight.jpg"
+                alt="kitchenDallhousesRight">
+        </div>
+        <hr>
+        <div class="categoryText">&darr; קטגוריות &darr;</div>
+        <mat-tab-group mat-align-tabs="center">
+            <mat-tab label="כל המוצרים">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card>
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="בתי בובות מעץ">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='בתי בובות מעץ'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="בתי בובות מפלסטיק">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='בתי בובות פלסטיק'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מטבחים מעץ">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='מטבחים מעץ'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מטבחים מפלסטיק">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='מטבחים מפלסטיק'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="סופרמרקט">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='סופרמרקט'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מוצרים לסופר">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='מוצרים לסופר'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="מוצרים למטבח">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='מוצרים למטבח'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+            <mat-tab label="אביזרים לבית בובות">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='אביזרים לבית בובות'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <mat-card-actions>
+                            <div class="number-input">
+                                <button
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                                <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
+                                    required>
+                                <button class="plus"
+                                    onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                            </div>
+                            <br>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                                אזל המלאי
+                            </button>
+                            <button mat-raised-button color="primary">מידע נוסף</button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </div>
+</div>

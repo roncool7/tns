@@ -1,0 +1,59 @@
+.about {
+  background-image: url("/assets/backgrounds/blueBg.png");
+  text-align: center;
+  height: 530px;
+}
+
+/* left side */
+.clearfix {
+  display: flex;
+}
+.feature {
+  max-width: 300px;
+}
+h4 {
+  color: white;
+  text-shadow: 1px 1px black;
+  font-size: 18px;
+  margin: 0px;
+  text-decoration-line: underline;
+}
+p {
+  font-size: 18px;
+  font-weight: bold;
+}
+.material-icons {
+  color: white;
+  font-size: 40px;
+}
+.material-icons:hover {
+  color: black;
+  text-shadow: 1px 0px 6px white;
+}
+
+/* right side */
+.about-store {
+  margin-right: 60px;
+}
+.about-store-title {
+  font-size: 30px;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-decoration-line: underline;
+}
+.about-store-text {
+  font-size: 20px;
+}
+
+/* Part b image */
+.part-B-Image{
+  height: 20px;
+}
+.imageCenterAbout{
+  width: 300px;
+  height: 370px;
+  border: 5px double black;
+  border-radius:30px;
+  box-shadow: 3px 3px 10px white;
+  padding: 10px;
+}

@@ -1,0 +1,14 @@
+.shipping-returns {
+  background-image: url("/assets/backgrounds/blueBg.png");
+  text-align: center;
+  font-weight: bold;
+  padding: 20px;
+}
+.shipping-returns > div {
+  color: white;
+  font-size: 30px;
+  text-shadow: 0 0 10px black;
+}
+.shipping-returns > p > a {
+  color: white;
+}

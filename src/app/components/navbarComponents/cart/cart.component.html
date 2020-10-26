@@ -1,0 +1,30 @@
+<div class="cart">
+    <app-heading>העגלה שלי</app-heading>
+    <hr>
+    <div class="cartMessages">
+        <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
+        <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
+    </div>
+    <mat-grid-list cols="3">
+        <mat-grid-tile class="part-A-Cart-image">
+            <img class="imageCart" src="/assets/images/cart/leftSide.png" alt="left">
+        </mat-grid-tile>
+        <mat-grid-tile class="part-B-Cart">
+            <div class="emptyCartCustomer">
+                <img class="emptyCart" src="/assets/images/cart/cartEmpty.png" alt="emptyCart">
+                <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
+                <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="part-C-text">
+            <div class="cartRules">
+                <hr>
+                <p>. עגלת הקניות שלך ריקה *</p>
+                <p>. אנא הכנס מוצרים לעגלה בדף הבית *</p>
+                <p>. כל המוצרים נמצאים בקטגוריות משני צידי הדף *</p>
+                <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="cartLinks" routerLink="/contact">יצירת קשר</a> *</p>
+                <hr>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

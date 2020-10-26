@@ -1,0 +1,48 @@
+<div class="kodkodProducts">
+    <app-navbar-brands></app-navbar-brands>
+    <app-heading>מוצרים של חברת קודקוד</app-heading>
+    <hr>
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>
+            <img class="imageKodkod" src="/assets/images/all-brands/kodkod/kodkod2.png" alt="Left">
+            <img class="imageKodkod" src="/assets/images/all-brands/kodkod/kodkod3.png" alt="Left1">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <img class="imageKodkod1" src="/assets/images/all-brands/kodkod/kodkod.png" alt="center">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <img class="imageKodkod" src="/assets/images/all-brands/kodkod/kodkod4.png" alt="Right">
+            <img class="imageKodkod" src="/assets/images/all-brands/kodkod/kodkod1.png" alt="Right1">
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="aboutKodkod">
+        <p>!ריכזנו עבורכם מבחר מוצרים מהמותג קודקוד</p>
+        <p>חברה מובילה בתחום משחקי הקופסא לכל הגילאים</p>
+    </div>
+    <hr>
+    <div *ngFor="let product of kodkodProducts" class="allProducts">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{product.Product_Name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+            <div class="price">₪{{product.Product_Price}} :מחיר</div>
+            <mat-card-actions>
+                <div class="number-input">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                    <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1" required>
+                    <button class="plus"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                </div>
+                <br>
+                <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                    אזל המלאי
+                </button>
+                <button mat-raised-button color="primary">מידע נוסף</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+</div>

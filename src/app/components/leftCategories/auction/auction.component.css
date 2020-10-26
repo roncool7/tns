@@ -1,0 +1,201 @@
+.auction {
+  background-image: url("/assets/backgrounds/greenBg.png");
+  text-align: center;
+  height: 1200px;
+}
+
+/* part b image center */
+.part-B-Auction-image {
+  height: 0px;
+}
+.imageAuction {
+  width: 420px;
+}
+
+/* part c auction rules */
+.auctionRules > p {
+  font-weight: bold;
+  font-size: 18px;
+  color: white;
+  text-shadow: 1px 1px black;
+}
+.auctionLinks {
+  color: white;
+}
+.auctionLinks:hover {
+  color: cornflowerblue;
+}
+.ruleMainText {
+  font-weight: bold;
+  font-size: 35px;
+  text-shadow: 2px 2px 5px black;
+  text-decoration: underline;
+  text-decoration-color: white;
+  color: white;
+}
+
+/* 3 products */
+.row {
+  display: inline-flex;
+  height: 400px;
+}
+.product-auction .product-image {
+  border: 5px double black;
+  margin: 20px;
+  position: relative;
+}
+.product-auction:hover .product-image {
+  box-shadow: 0 0 10px white;
+}
+.product-auction .product-image img {
+  width: 300px;
+  height: 300px;
+}
+.product-auction .productOfTheWeek {
+  display: block;
+  padding: 4px 15px 4px 30px;
+  color: white;
+  background-color: black;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  clip-path: polygon(34% 0, 100% 0, 100% 100%, 0 100%);
+}
+.product-auction .product-content {
+  padding: 10px 0 0;
+}
+.product-auction .time {
+  font-size: 19px;
+  font-weight: bold;
+  background-color: white;
+  border-radius: 20px;
+  margin: 10px;
+  padding: 5px;
+}
+
+.product-auction .product-priceNow {
+  font-size: 22px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  display: block;
+  position: relative;
+  padding: 5px;
+  text-shadow: 1px 1px 10px white;
+}
+.product-auction .product-last-offer-name {
+  font-size: 23px;
+  font-weight: bold;
+  text-shadow: 1px 1px 10px white;
+}
+.product-auction .title {
+  color: white;
+  text-shadow: 0 0 15px black;
+  font-size: 25px;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.product-auction .makeOffer {
+  font-weight: bold;
+  font-size: 20px;
+  padding: 10px;
+  margin: 10px;
+  box-shadow: 0px 0px 15px black;
+}
+.product-auction .makeOffer:hover {
+  background-color: black;
+  color: white;
+  box-shadow: 0px 0px 15px white;
+}
+
+/* Dialog */
+::ng-deep .mat-dialog-container {
+  text-align: center;
+  width: 400px !important;
+  font-size: 20px;
+  border: 2px solid;
+}
+::ng-deep .mat-dialog-title {
+  font-weight: bold;
+}
+.closeDialogBtn {
+  margin: auto;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+/* offer price button */
+.newOfferBtn {
+  background-color: greenyellow;
+  border: 2px solid black;
+  font-weight: bold;
+  margin: auto;
+}
+
+/* new offer input */
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.number-input {
+  border: 0;
+  display: inline-flex;
+}
+.number-input,
+.number-input * {
+  box-sizing: border-box;
+}
+.number-input button {
+  outline:none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: none;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  margin: 0;
+  position: relative;
+  box-shadow: 0px 0px 1px black;
+  border-radius: 50%;
+}
+.number-input button:before,
+.number-input button:after {
+  display: inline-block;
+  position: absolute;
+  content: '';
+  width: 1rem;
+  height: 2px;
+  background-color: #212121;
+  transform: translate(-50%, -50%);
+}
+.number-input button.plus:after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.number-input input[type=number] {
+  width: 40%;
+  font-family: sans-serif;
+  max-width: 8rem;
+  padding: .5rem;
+  border: none;
+  border-width: 0 2px;
+  font-size: 2rem;
+  height: 3rem;
+  font-weight: bold;
+  text-align: center;
+  margin: auto;
+}
+
+/* new offer rules */
+.offerRules > div{
+  font-weight: bold;
+}
+.offerRules > p{
+  font-size: 16px;
+}

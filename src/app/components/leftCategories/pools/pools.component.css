@@ -1,0 +1,38 @@
+.pools {
+  background-image: url("/assets/backgrounds/greenBg.png");
+  text-align: center;
+  height: 550px;
+}
+
+.imageAbout{
+  margin: 15px;
+  width: 550px;
+  height: 300px;
+}
+
+/* type effect */
+p {
+  border-right: solid 3px white;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 40px;
+  margin: 0 auto;
+  animation: animated-text 4s steps(40, end) 1s 1 normal both,
+    animated-cursor 1000ms steps(40, end) infinite;
+}
+@keyframes animated-text {
+  from {
+    width: 0;
+  }
+  to {
+    width: 400px;
+  }
+}
+@keyframes animated-cursor {
+  from {
+    border-right-color: white;
+  }
+  to {
+    border-right-color: transparent;
+  }
+}

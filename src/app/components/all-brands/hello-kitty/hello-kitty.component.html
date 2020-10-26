@@ -1,0 +1,48 @@
+<div class="helloKittyProducts">
+    <app-navbar-brands></app-navbar-brands>
+    <app-heading>מוצרים של המותג הלו קיטי</app-heading>
+    <hr>
+    <mat-grid-list cols="3" rowHeight="2:1">
+        <mat-grid-tile>
+            <img class="imageHelloKitty" src="/assets/images/all-brands/hello-kitty/kitty2.png" alt="Left">
+            <img class="imageHelloKitty" src="/assets/images/all-brands/hello-kitty/kitty3.png" alt="Left1">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <img class="imageHelloKitty1" src="/assets/images/all-brands/hello-kitty/kitty1.png" alt="center">
+        </mat-grid-tile>
+        <mat-grid-tile>
+            <img class="imageHelloKitty" src="/assets/images/all-brands/hello-kitty/kitty4.png" alt="Right">
+            <img class="imageHelloKitty" src="/assets/images/all-brands/hello-kitty/kitty5.png" alt="Right1">
+        </mat-grid-tile>
+    </mat-grid-list>
+
+    <div class="aboutHelloKitty">
+        <p>!ריכזנו עבורכם מבחר מוצרים מהמותג הלו קיטי</p>
+        <p>חברה מובילה בתחום הדמות המוכרת והאהובה הלו קיטי</p>
+    </div>
+    <hr>
+    <div *ngFor="let product of helloKittyProducts" class="allProducts">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>{{product.Product_Name}}</mat-card-title>
+            </mat-card-header>
+            <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+            <div class="price">₪{{product.Product_Price}} :מחיר</div>
+            <mat-card-actions>
+                <div class="number-input">
+                    <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+                    <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1" required>
+                    <button class="plus"
+                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+                </div>
+                <br>
+                <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
+                    אזל המלאי
+                </button>
+                <button mat-raised-button color="primary">מידע נוסף</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+</div>

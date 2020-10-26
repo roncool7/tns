@@ -1,0 +1,20 @@
+.securing {
+  background-image: url("/assets/backgrounds/blueBg.png");
+  text-align: center;
+  height: 450px;
+  font-weight: bold;
+}
+
+.securing > div {
+  font-size: 35px;
+  color: white;
+  text-shadow: 0 0 10px black;
+}
+.securing>p{
+    font-size: 17px;
+}
+.securing>h3{
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px black;
+}

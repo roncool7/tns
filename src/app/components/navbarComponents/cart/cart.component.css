@@ -1,0 +1,55 @@
+.cart {
+  background-image: url("/assets/backgrounds/blueBg.png");
+  text-align: center;
+  height: 700px;
+}
+
+/* cart messages */
+.cartMessages {
+  font-weight: bold;
+  color: white;
+  text-decoration: underline;
+}
+
+/* part a cart image */
+.part-A-Cart-image {
+  height: 120px;
+}
+.imageCart {
+  height: 450px;
+  margin-top: -10px;
+  border: 5px double black;
+  border-radius: 27%;
+  box-shadow: 3px 3px 10px white;
+  padding: 10px;
+}
+
+/* part c cart text */
+.cartRules > p {
+  font-weight: bold;
+  font-size: 18px;
+}
+.cartLinks {
+  color: white;
+}
+.cartLinks:hover {
+  color: black;
+}
+
+/* empty cart */
+.emptyCartTextMain {
+  font-size: 35px;
+  font-weight: bold;
+  text-shadow: 1px 1px 5px white;
+}
+.goToHome {
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 20px;
+  box-shadow: 2px 2px black;
+}
+.goToHome:hover {
+  background-color: black;
+  color: white;
+}

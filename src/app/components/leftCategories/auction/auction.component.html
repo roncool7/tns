@@ -1,0 +1,189 @@
+<div class="auction">
+    <app-heading>מכירה פומבית</app-heading>
+    <hr>
+    <mat-grid-list cols="3">
+        <mat-grid-tile class="part-A-Auction-rule">
+            <div class="auctionRules">
+                <div class="ruleMainText">תקנון</div>
+                <hr>
+                <p>. אחרי לחיצה על הצע מחיר יפתח חלון ההצעה *</p>
+                <p>. אין אפשרות לבטל את ההצעה אחרי הצעת המחיר *</p>
+                <p>. הצעה אחרונה למוצר עד סוף הזמן המופיע *</p>
+                <p>. המחיר האחרון של המוצר הוא המחיר הסופי *</p>
+                <p>. עלות המשלוח ₪25 המחיר הסופי + ₪25*</p>
+                <p>. הזוכה יקבל אימייל על זכייתו בסוף המכירה *</p>
+                <p>. המוצר ישלח לזוכה עד 7 ימי עסקים *</p>
+                <p>. הזוכים ימסרו כרטיס אשראי תקף בסוף המכירה *</p>
+                <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="auctionLinks" routerLink="/contact">יצירת קשר</a> *
+                </p>
+            </div>
+        </mat-grid-tile>
+        <mat-grid-tile class="part-B-Auction-image">
+          <img class="imageAuction" src="/assets/images/left-side-categories/auction/center.png" alt="center">  
+        </mat-grid-tile>
+        <mat-grid-tile class="part-C-Auction-rule">
+            <div class="auctionRules">
+                <div class="ruleMainText">כללים</div>
+                <hr>
+                <p>. הצעת מחיר רק ללקוחות רשומים בלבד *</p>
+                <p>. בכל שבוע 3 מוצרים חדשים *</p>
+                <p>. שווי המוצרים ₪1000 ומעלה *</p>
+                <p>. המכירה תיערך במשך שבוע *</p>
+                <p>. משתמש יכול להציע רק על מוצר 1 מתוך 3 *</p>
+                <p>. קפיצות הצעת המחיר תיהיה ב-₪100 *</p>
+                <p>. לכל מוצר יש כפתור לידו על מידע נוסף אודות המוצר *</p>
+                <p>. מתחת לכל מוצר יופיעו ההצעה האחרונה ושם המציע  *</p>
+                <p>. צעצועים ללא הפסקה מאחלים לכם בהצלחה  *</p>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <hr>
+    <div class="row">
+        <div class="product-auction">
+            <div class="product-image">
+                <img src="/assets/images/left-side-categories/auction/33.jpg" alt="left">
+                <span class="productOfTheWeek">מוצר השבוע</span>
+            </div>
+            <div class="product-content">
+                <div class="time">{{counter | formatTime}}</div>
+                <span class="product-priceNow">הצעה אחרונה: ₪{{lastPriceProductLeft}}</span>
+                <span class="product-last-offer-name">שם המציע: {{lastOfferNameLeft}}</span>
+                <h3 class="title">חיפושית ורודה 12 וואלט</h3>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferLeft()">הצע מחיר</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogLeft()">מידע נוסף</button>
+            </div>
+        </div>
+        <div class="product-auction">
+            <div class="product-image">
+                <img src="/assets/images/left-side-categories/auction/32.jpg" alt="center">
+                <span class="productOfTheWeek">מוצר השבוע</span>
+            </div>
+            <div class="product-content">
+                <div class="time">{{counter | formatTime}}</div>
+                <span class="product-priceNow">הצעה אחרונה: ₪{{lastPriceProductCenter}}</span>
+                <span class="product-last-offer-name">שם המציע: {{lastOfferNameCenter}}</span>
+                <h3 class="title">AMG ממונע מרצדס דגם</h3>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferCenter()">הצע מחיר</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogCenter()">מידע נוסף</button>
+            </div>
+        </div>
+        <div class="product-auction">
+            <div class="product-image">
+                <img src="/assets/images/left-side-categories/auction/509.jpg" alt="right">
+                <span class="productOfTheWeek">מוצר השבוע</span>
+            </div>
+            <div class="product-content">
+                <div class="time">{{counter | formatTime}}</div>
+                <span class="product-priceNow">הצעה אחרונה: ₪{{lastPriceProductRight}}</span>
+                <span class="product-last-offer-name">שם המציע: {{lastOfferNameRight}}</span>
+                <h3 class="title">בית בובות ענק מעץ</h3>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferRight()">הצע מחיר</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogRight()">מידע נוסף</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- More info dialogs -->
+<ng-template #moreInfoLeft>
+    <h1 mat-dialog-title>חיפושית ורודה 12 וואלט</h1>
+    <div mat-dialog-content>
+        ממונע חיפושית ורודה 12 וואלט אשר כוללת מושב מרופד דמוי עור,דלתות נפתחות,תאורת לד בפנסים קדימה ואחורה,כרטיס
+        זכרון,
+        חיבור לאוקס,וחגורות בטיחות הערה: מתאים לגילאי 1 עד 5</div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+    </div>
+</ng-template>
+
+<ng-template #moreInfoCenter>
+    <h1 mat-dialog-title>AMG ממונע מרצדס דגם</h1>
+    <div mat-dialog-content>
+        ממונע מרצדס ספורט 2 מושבי עור זוגי,גלגלי גומי,תאורת לד בחזית ומאחור,מערכת אמפי3,חגורות בטיחות,ידית נשיאה בצבע
+        שחור הערה: מתאים לגילאי 1 עד 6</div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+    </div>
+</ng-template>
+
+<ng-template #moreInfoRight>
+    <h1 mat-dialog-title>בית בובות ענק מעץ</h1>
+    <div mat-dialog-content>
+        בית בובות ענק ומפואר 3 קומות, 5 חדרים,לבית הבובות הענק והמפואר 5 חדרים ב 2 מתחמים עם גרם מדרגות מרכזי קירות הבית
+        מצוירים ומעניקים אווירה ביתית מרהיבה,בית הבובות כולל תאורת חוץ, פסנתר מנגן, אסלה עם אפקטים ועוד. הבית כולל מתחם
+        חוץ עם בריכת שחיה, מיטת שיזוף וגריל כולל מעלית הניתנת להסעה למעלה / למטה על גבי שלושת הקומות,מידות הבית במצב
+        מורכב: רוחב 117.47 ס`מ*עומק 64 ס`מ*גובה 125 ס`מ עם בריכת שחיה ומעלית</div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+    </div>
+</ng-template>
+
+<!-- Customer make new offer to product -->
+<ng-template #makeNewOfferLeft>
+    <h1 mat-dialog-title>הצעת מחיר ל-ממונע חיפושית</h1>
+    <div mat-dialog-content>
+        <div class="offerRules">
+            <div>המחיר הנוכחי: ₪{{lastPriceProductLeft}}</div>
+            <p>הצעת המחיר תיהיה המחיר הנוכחי פלוס ההצעה שלך  *</p>
+            <p>הצעת המחיר תיהיה בקפיצות של ₪100  *</p>
+            <p>!אחרי לחיצה על הצע מחיר,הצעתך תתקבל  *</p>
+            <p>!אין אפשרות לבטל את ההצעה אחרי הלחיצה  *</p>
+            <p>הצעת המחיר תיהיה בשקלים  *</p>
+        </div>
+        <div class="number-input">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+            <input class="quantity" type="number" #offerLeft min="100" max="1000" value="100" step="100" required>
+            <button class="plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+        <button class="newOfferBtn" mat-button (click)="offerNowLeft(offerLeft.value,33)">הצע מחיר</button>
+    </div>
+</ng-template>
+
+<ng-template #makeNewOfferCenter>
+    <h1 mat-dialog-title>הצעת מחיר ל-ממונע מרצדס</h1>
+    <div mat-dialog-content>
+        <div class="offerRules">
+            <div>המחיר הנוכחי: ₪{{lastPriceProductCenter}}</div>
+            <p>הצעת המחיר תיהיה המחיר הנוכחי פלוס ההצעה שלך  *</p>
+            <p>הצעת המחיר תיהיה בקפיצות של ₪100  *</p>
+            <p>!אחרי לחיצה על הצע מחיר,הצעתך תתקבל  *</p>
+            <p>!אין אפשרות לבטל את ההצעה אחרי הלחיצה  *</p>
+            <p>הצעת המחיר תיהיה בשקלים  *</p>
+        </div>
+        <div class="number-input">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+            <input class="quantity" type="number" #offerCenter min="100" max="1000" value="100" step="100" required>
+            <button class="plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+        <button class="newOfferBtn" mat-button (click)="offerNowCenter(offerCenter.value,32)">הצע מחיר</button>
+    </div>
+</ng-template>
+
+<ng-template #makeNewOfferRight>
+    <h1 mat-dialog-title>הצעת מחיר ל-בית בובות ענק</h1>
+    <div mat-dialog-content>
+        <div class="offerRules">
+            <div>המחיר הנוכחי: ₪{{lastPriceProductRight}}</div>
+            <p>הצעת המחיר תיהיה המחיר הנוכחי פלוס ההצעה שלך  *</p>
+            <p>הצעת המחיר תיהיה בקפיצות של ₪100  *</p>
+            <p>!אחרי לחיצה על הצע מחיר,הצעתך תתקבל  *</p>
+            <p>!אין אפשרות לבטל את ההצעה אחרי הלחיצה  *</p>
+            <p>הצעת המחיר תיהיה בשקלים  *</p>
+        </div>
+        <div class="number-input">
+            <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
+            <input class="quantity" type="number" #offerRight min="100" max="1000" value="100" step="100" required>
+            <button class="plus" onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+        </div>
+    </div>
+    <div mat-dialog-actions>
+        <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
+        <button class="newOfferBtn" mat-button (click)="offerNowRight(offerRight.value,509)">הצע מחיר</button>
+    </div>
+</ng-template>

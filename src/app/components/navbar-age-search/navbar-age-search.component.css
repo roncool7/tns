@@ -1,0 +1,18 @@
+.navbar-searchByAge {
+  background-color: white;
+}
+.navbar-searchByAge > nav > a {
+  color: cornflowerblue;
+  border: 8px solid transparent;
+  text-decoration: none;
+  border-image: url("/assets/backgrounds/navsBorder.jpg") 10% round;
+  padding: 5px;
+  margin: 32px;
+}
+.navbar-searchByAge > nav > a:hover {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+.navbar-searchByAge > nav > a.active {
+  color: black;
+}

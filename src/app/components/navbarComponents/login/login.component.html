@@ -1,0 +1,60 @@
+<div class="login">
+    <app-heading>כניסה לאתר</app-heading>
+    <hr>
+    <mat-grid-list cols="3">
+        <mat-grid-tile class="part-A-image">
+            <img class="imagesLogin" src="/assets/images/login/leftSide.png" alt="left">
+        </mat-grid-tile>
+        <mat-grid-tile class="part-B-LoginForm">
+            <form [formGroup]="loginForm" class="loginForm" (ngSubmit)="loginForm.valid && loginButton()" novalidate>
+                <mat-form-field hintLabel="כתובת המייל " appearance="fill">
+                    <mat-label>אימייל</mat-label>
+                    <input matInput type="email" name="Email" placeholder="אימייל" [(ngModel)]="login.Email"
+                        formControlName="Email" maxlength="30" required>
+                    <mat-error *ngIf="loginForm.get('Email').hasError('required')">אימייל חסר</mat-error>
+                    <mat-error *ngIf="loginForm.get('Email').hasError('Email')">אימייל לא נכון</mat-error>
+                </mat-form-field>
+
+                <br><br>
+                <mat-form-field hintLabel="סיסמא" appearance="fill">
+                    <mat-label class="inputsNames">סיסמא</mat-label>
+                    <input matInput type="password" name="Password" placeholder="סיסמא" [(ngModel)]="login.Password"
+                        formControlName="Password" [type]="hidePassword ? 'password':'text'" minlength="3"
+                        maxlength="20" required>
+                    <mat-icon matSuffix (click)="hidePassword = !hidePassword">
+                        {{hidePassword ? 'visibility': 'visibility_off'}}
+                    </mat-icon>
+                    <mat-error *ngIf="loginForm.get('Password').hasError('required')">סיסמא חסרה</mat-error>
+                    <mat-error *ngIf="loginForm.get('Password').hasError('minlength')">מינימום 3 תווים</mat-error>
+                    <mat-error *ngIf="loginForm.get('Password')?.errors?.wrongEmailOrPass">אימייל או סיסמא לא נכונים</mat-error>
+                </mat-form-field>
+
+                <br><br>
+                <button mat-button type="submit" class="mat-raised-button mat-primary"
+                    [disabled]="!loginForm.valid">כניסה לאתר</button><br>
+                <hr>
+                <mat-accordion>
+                    <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                        <mat-expansion-panel-header>
+                            <mat-panel-title>
+                                <div class="loginText">שחכת סיסמא?</div><br>
+                            </mat-panel-title>
+                        </mat-expansion-panel-header>
+                        <button mat-button type="button" routerLink="/forgetPass" class="forgetPassLink mat-raised-button">לחץ כאן </button>
+                    </mat-expansion-panel>
+                </mat-accordion><br>
+                <div class="loginText">אין לך משתמש?</div><br>
+                <button mat-button type="button" routerLink="/register" class="registerNow mat-raised-button mat-primary">הרשם עכשיו!</button>
+            </form>
+        </mat-grid-tile>
+        <mat-grid-tile class="part-C-text">
+            <div class="loginRules">
+                <hr>
+                <p>. כניסה ללקוחות רשומים  *</p>
+                <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="loginLinks" routerLink="/contact">יצירת קשר</a>  *</p>
+                <p>. צעצועים ללא הפסקה מאחלים לכם קנייה נעימה  *</p>
+                <hr>
+              </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</div>

@@ -1,0 +1,25 @@
+.navbar-all-brands{
+    height: 110px;
+    background-color: white;
+}
+.navbar-all-brands>nav>a{
+    color: cornflowerblue;
+    font-weight: bold;
+    text-decoration: none;
+    margin:5px;
+    padding: 4px;
+    border: 2px solid black;
+    border-radius: 20px;
+    box-shadow: 3px 3px 3px black;
+}
+.navbar-all-brands>nav>a:hover{
+    color: white;
+    background-color: cornflowerblue;
+}
+.navbar-all-brands>nav>a.active{
+    color: black;
+}
+.navbar-all-brands>nav>a.active:hover{
+    color: black;
+    background-color: white;
+}

@@ -1,0 +1,83 @@
+.footer {
+  height: 200px;
+  display: flex;
+  text-align: center;
+}
+
+/* links */
+.routesLinks{
+  text-decoration: none;
+  color: cornflowerblue;
+  font-weight: bold;
+}
+.routesLinks:hover{
+  color: black;
+}
+.cubes {
+  background-image: url("/assets/backgrounds/cubes.png");
+  height: 100px;
+  border: none;
+  margin: 0;
+  margin-top: -30px;
+}
+
+.part-A {
+  margin-left: 40px;
+  margin-top: 15px;
+}
+.part-B,
+.part-C,
+.part-D {
+  margin: 30px;
+  margin-left: auto;
+}
+.part-D > p:nth-child(even) {
+  color: orangered;
+}
+.part-D > p:nth-child(odd) {
+  color: limegreen;
+}
+
+/* Footer headers */
+.header {
+  font-weight: bold;
+  font-size: 18px;
+  text-decoration-line: underline;
+}
+
+/* icons */
+.material-icons {
+  vertical-align: text-top;
+}
+
+/* toys image left */
+.toysImage {
+  height: 170px;
+  width: 170px;
+  border-radius: 50%;
+  border-bottom: inset;
+  box-shadow: 0px 0px 10px black;
+  transition: transform 0.8s ease-in-out;
+}
+.toysImage:hover {
+  transform: rotateY(-360deg);
+}
+
+/* home page btn */
+.homePageBtn {
+  position: absolute;
+  left: 230px;
+  writing-mode: tb-rl;
+  height: 170px;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+/* footer */
+.footer-copyright{
+  margin: 5px;
+  font-family: serif;
+  margin-left: 15px;
+  color: white;
+  text-shadow: 0px 0px 3px black;
+}

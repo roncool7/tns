@@ -1,0 +1,55 @@
+.register {
+  background-image: url("/assets/backgrounds/blueBg.png");
+}
+.allGrids{
+  height: 420px;
+  direction: rtl;
+  text-align: center;
+}
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  text-align: center;
+  width: 230px;
+  font-weight: bold;
+}
+
+
+/* Part B register form */
+.part-B-Form{
+  height: 420px;
+}
+.registerForm{
+  border: 4px double black;
+  padding: 8px;
+  background-color: white;
+}
+
+.registerBtn{
+  background-color: green;
+  font-size: 20px;
+}
+
+.gotUserText{
+  font-weight: bold;
+  font-size: 18px;
+}
+
+/* Part C image and text */
+.registerRules{
+  margin-top: -550px;
+  position: inherit;
+}
+.registerRules>p{
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* images */
+.images{
+  margin-top: 100px;
+  height: 480px;
+  width: 410px;
+}
+
+.part-A,.part-C{
+  height: 300px;
+}

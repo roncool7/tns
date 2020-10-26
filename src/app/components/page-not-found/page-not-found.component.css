@@ -1,0 +1,13 @@
+.pageNotFound{
+    background-image: url("/assets/backgrounds/toysMain.jpg");
+    background-position: center;
+    background-size: 71%;
+    height: 468px;
+    text-align: center;
+}
+
+/* page not found main text */
+.notFoundText{
+    font-size: 40px;
+    font-weight: bold;
+}
