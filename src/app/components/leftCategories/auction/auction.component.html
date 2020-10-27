@@ -19,7 +19,7 @@
             </div>
         </mat-grid-tile>
         <mat-grid-tile class="part-B-Auction-image">
-          <img class="imageAuction" src="/assets/images/left-side-categories/auction/center.png" alt="center">  
+          <img class="imageAuction" src="/assets/images/left-side-categories/auction/center.png" alt="center">
         </mat-grid-tile>
         <mat-grid-tile class="part-C-Auction-rule">
             <div class="auctionRules">
@@ -50,7 +50,7 @@
                 <span class="product-last-offer-name">שם המציע: {{lastOfferNameLeft}}</span>
                 <h3 class="title">חיפושית ורודה 12 וואלט</h3>
                 <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferLeft()">הצע מחיר</button>
-                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogLeft()">מידע נוסף</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogLeft()" (click)="onDetailsClicked(product)">מידע נוסף</button>
             </div>
         </div>
         <div class="product-auction">
@@ -64,7 +64,7 @@
                 <span class="product-last-offer-name">שם המציע: {{lastOfferNameCenter}}</span>
                 <h3 class="title">AMG ממונע מרצדס דגם</h3>
                 <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferCenter()">הצע מחיר</button>
-                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogCenter()">מידע נוסף</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogCenter()" (click)="onDetailsClicked(product)">מידע נוסף</button>
             </div>
         </div>
         <div class="product-auction">
@@ -78,7 +78,7 @@
                 <span class="product-last-offer-name">שם המציע: {{lastOfferNameRight}}</span>
                 <h3 class="title">בית בובות ענק מעץ</h3>
                 <button mat-button class="makeOffer mat-raised-button" (click)="openNewOfferRight()">הצע מחיר</button>
-                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogRight()">מידע נוסף</button>
+                <button mat-button class="makeOffer mat-raised-button" (click)="openDialogRight()" (click)="onDetailsClicked(product)">מידע נוסף</button>
             </div>
         </div>
     </div>

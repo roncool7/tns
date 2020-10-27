@@ -3,6 +3,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component,OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import {DetailsDialogComponent} from "../../details-dialog/details-dialog.component";
 
 @Component({
   selector: 'app-auction',
@@ -35,7 +36,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
   constructor(
     public dialog: MatDialog,
     private snackBar: MatSnackBar,
-    private myAuctionService: AuctionService,
+    private myAuctionService: AuctionService
   ) {}
 
   async ngOnInit() {
@@ -57,7 +58,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     }
     this.lastPriceProductLeft = getLastOfferLeft[0].Price;
     this.lastOfferNameLeft = getLastOfferLeft[0].First_Name + ' ' + getLastOfferLeft[0].Last_Name;
-    
+
     const getLastOfferRight = await this.myAuctionService.checkLastOfferRight();
     if (getLastOfferRight[0] === undefined) {
       this.lastPriceProductRight = 600;
@@ -210,5 +211,14 @@ export class AuctionComponent implements OnInit, OnDestroy {
   // Alert messages
   private openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, { duration: 5000 });
+  }
+
+  onDetailsClicked(product) {
+    const dialogRef = this.dialog.open(DetailsDialogComponent, {
+      data: {product},
+      disableClose: true,
+      height: '400px',
+      width: '600px',
+    });
   }
 }
