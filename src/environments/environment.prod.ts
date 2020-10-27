@@ -2,10 +2,10 @@ export const environment = {
   production: true
 };
 
-export const contactBaseUrl = "http://localhost:3000/api/contact";
-export const authBaseUrl = "http://localhost:3000/api/auth";
-export const auctionBaseUrl = "http://localhost:3000/api/auction";
-export const productsBaseUrl = "http://localhost:3000/api/products";
-export const productsAgesBaseUrl = "http://localhost:3000/api/productsAges";
-export const productsBrandsBaseUrl = "http://localhost:3000/api/productsBrands";
-export const searchBaseUrl = "http://localhost:3000/api/search";
+export const contactBaseUrl = "https://tns-be.herokuapp.com/api/contact";
+export const authBaseUrl = "https://tns-be.herokuapp.com/api/auth";
+export const auctionBaseUrl = "https://tns-be.herokuapp.com/api/auction";
+export const productsBaseUrl = "https://tns-be.herokuapp.com/api/products";
+export const productsAgesBaseUrl = "https://tns-be.herokuapp.com/api/productsAges";
+export const productsBrandsBaseUrl = "https://tns-be.herokuapp.com/api/productsBrands";
+export const searchBaseUrl = "https://tns-be.herokuapp.com/api/search";
