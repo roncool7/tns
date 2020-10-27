@@ -2,6 +2,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ProductModel } from './../../../models/product-model';
 import { ProductsByAgeService } from './../../../services/products-by-age.service';
 import { Component, OnInit } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {DetailsDialogComponent} from "../../details-dialog/details-dialog.component";
 
 @Component({
   selector: 'app-age-right-b',
@@ -18,7 +20,8 @@ export class AgeRightBComponent implements OnInit {
 
   constructor(
     private myProductsAgeService: ProductsByAgeService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
   ) {}
 
   ngOnInit() {
@@ -84,5 +87,14 @@ export class AgeRightBComponent implements OnInit {
   // Alert messages
   private openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, { duration: 5000 });
+  }
+
+  onDetailsClicked(product) {
+    const dialogRef = this.dialog.open(DetailsDialogComponent, {
+      data: {product},
+      disableClose: true,
+      height: '400px',
+      width: '600px',
+    });
   }
 }
