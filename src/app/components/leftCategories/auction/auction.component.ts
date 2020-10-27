@@ -3,7 +3,6 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Component,OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Subscription, timer } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import {DetailsDialogComponent} from "../../details-dialog/details-dialog.component";
 
 @Component({
   selector: 'app-auction',
@@ -211,14 +210,5 @@ export class AuctionComponent implements OnInit, OnDestroy {
   // Alert messages
   private openSnackBar(message: string, action: string): void {
     this.snackBar.open(message, action, { duration: 5000 });
-  }
-
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
   }
 }
