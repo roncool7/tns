@@ -34,7 +34,7 @@
                                     onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
                             </div>
                             <br>
-                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn">הוספה לעגלה</button>
+                            <button mat-raised-button *ngIf="product.Product_In_Stock != 0" class="addToCartBtn" (click)="onAddToCart(product)">הוספה לעגלה</button>
                             <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">
                                 אזל המלאי
                             </button>

@@ -3,6 +3,7 @@ import { ProductsService } from './../../../services/products.service';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {DetailsDialogComponent} from "../../details-dialog/details-dialog.component";
+import {CartService} from "../../../services/cart.service";
 
 @Component({
   selector: 'app-on-wheels',
@@ -14,7 +15,8 @@ export class OnWheelsComponent implements OnInit {
   public onWheelsProducts: ProductModel[];
 
   constructor(private myProductsService: ProductsService,
-              private dialog: MatDialog) {}
+              private dialog: MatDialog,
+              private cartService: CartService) {}
 
   ngOnInit() {
     this.loader = true;
@@ -31,5 +33,9 @@ export class OnWheelsComponent implements OnInit {
       height: '400px',
       width: '600px',
     });
+  }
+
+  onAddToCart(product: ProductModel) {
+    this.cartService.addToCart(product);
   }
 }
