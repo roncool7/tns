@@ -1,14 +1,14 @@
 /* pages */
 .partOne {
-  background-image: url("/assets/backgrounds/blueBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/blueBg.png");
   height: 450px;
 }
 .partTwo {
-  background-image: url("/assets/backgrounds/greenBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/greenBg.png");
   height: 500px;
 }
 .partThree {
-  background-image: url("/assets/backgrounds/yellowBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/yellowBg.png");
   height: 500px;
 }
 
@@ -21,7 +21,7 @@ p {
 
 /* cubes line */
 .cubeLine {
-  background-image: url("/assets/backgrounds/cubes.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/cubes.png");
   width: 100%;
   height: 100px;
   position: absolute;
@@ -55,7 +55,7 @@ p {
 .right-side-nav ul li:hover,
 .left-side-nav ul li:hover {
   font-weight: bold;
-  background-image: url("/assets/backgrounds/toysMain.jpg");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/toysMain.jpg");
   background-position: center;
   background-size: 70%;
 }
@@ -95,7 +95,7 @@ p {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-image: url("/assets/backgrounds/toysMain.jpg");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/toysMain.jpg");
   background-size: cover;
   background-position: center;
   transform-origin: 0% 50%;

@@ -14,7 +14,7 @@
   <div *ngIf="step === 1">
     <mat-grid-list [cols]="products.length ? '2' : '3'">
       <mat-grid-tile class="part-A-Cart-image">
-        <img class="imageCart" src="/assets/images/cart/leftSide.png" alt="left">
+        <img class="imageCart" src="https://tns-be.herokuapp.com/images/cart/leftSide.png" alt="left">
       </mat-grid-tile>
       <mat-grid-tile *ngIf="products.length">
         <div>
@@ -37,7 +37,7 @@
       </mat-grid-tile>
       <mat-grid-tile class="part-B-Cart" *ngIf="!products.length">
         <div class="emptyCartCustomer">
-          <img class="emptyCart" src="/assets/images/cart/cartEmpty.png" alt="emptyCart">
+          <img class="emptyCart" src="https://tns-be.herokuapp.com/images/cart/cartEmpty.png" alt="emptyCart">
           <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
           <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
         </div>

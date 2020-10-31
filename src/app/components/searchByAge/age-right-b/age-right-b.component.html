@@ -3,7 +3,7 @@
     <app-heading>גילאי 9-11 שנים</app-heading>
     <hr>
      <!-- Loader -->
-     <img *ngIf="loader" class="imageRobo" src="/assets/backgrounds/loading.gif" alt="טוען">
+     <img *ngIf="loader" class="imageRobo" src="https://tns-be.herokuapp.com/backgrounds/loading.gif" alt="טוען">
    <!-- Filter products -->
    <div class="filterNav" *ngIf="!loader">
        <div class="header-filter"> :סינון מוצרים לפי</div>
@@ -26,7 +26,7 @@
                <mat-card-header>
                    <mat-card-title>{{product.Product_Name}}</mat-card-title>
                </mat-card-header>
-               <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+               <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
                <div class="price">₪{{product.Product_Price}} :מחיר</div>
                <app-product-actions [product]="product"></app-product-actions>
            </mat-card>
@@ -39,7 +39,7 @@
                <mat-card-header>
                    <mat-card-title>{{product.Product_Name}}</mat-card-title>
                </mat-card-header>
-               <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+               <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
                <div class="price">₪{{product.Product_Price}} :מחיר</div>
                <app-product-actions [product]="product"></app-product-actions>
            </mat-card>
@@ -52,7 +52,7 @@
                <mat-card-header>
                    <mat-card-title>{{product.Product_Name}}</mat-card-title>
                </mat-card-header>
-               <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+               <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
                <div class="price">₪{{product.Product_Price}} :מחיר</div>
                <app-product-actions [product]="product"></app-product-actions>
            </mat-card>
@@ -65,7 +65,7 @@
                <mat-card-header>
                    <mat-card-title>{{product.Product_Name}}</mat-card-title>
                </mat-card-header>
-               <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+               <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
                <div class="price">₪{{product.Product_Price}} :מחיר</div>
                <app-product-actions [product]="product"></app-product-actions>
            </mat-card>

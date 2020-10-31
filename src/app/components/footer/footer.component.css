@@ -14,7 +14,7 @@
   color: black;
 }
 .cubes {
-  background-image: url("/assets/backgrounds/cubes.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/cubes.png");
   height: 100px;
   border: none;
   margin: 0;

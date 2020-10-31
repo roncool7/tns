@@ -4,15 +4,15 @@
     <hr>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>
-            <img class="imageFisherPrice" src="/assets/images/all-brands/fisher-price/fisherPrice2.png" alt="Left">
-            <img class="imageFisherPrice" src="/assets/images/all-brands/fisher-price/fisherPrice3.png" alt="Left1">
+            <img class="imageFisherPrice" src="https://tns-be.herokuapp.com/images/all-brands/fisher-price/fisherPrice2.png" alt="Left">
+            <img class="imageFisherPrice" src="https://tns-be.herokuapp.com/images/all-brands/fisher-price/fisherPrice3.png" alt="Left1">
         </mat-grid-tile>
         <mat-grid-tile>
-            <img class="imageFisherPrice1" src="/assets/images/all-brands/fisher-price/fisherPrice1.png" alt="center">
+            <img class="imageFisherPrice1" src="https://tns-be.herokuapp.com/images/all-brands/fisher-price/fisherPrice1.png" alt="center">
         </mat-grid-tile>
         <mat-grid-tile>
-            <img class="imageFisherPrice" src="/assets/images/all-brands/fisher-price/fisherPrice4.png" alt="Right">
-            <img class="imageFisherPrice" src="/assets/images/all-brands/fisher-price/fisherPrice5.png" alt="Right1">
+            <img class="imageFisherPrice" src="https://tns-be.herokuapp.com/images/all-brands/fisher-price/fisherPrice4.png" alt="Right">
+            <img class="imageFisherPrice" src="https://tns-be.herokuapp.com/images/all-brands/fisher-price/fisherPrice5.png" alt="Right1">
         </mat-grid-tile>
     </mat-grid-list>
 
@@ -26,7 +26,7 @@
             <mat-card-header>
                 <mat-card-title>{{product.Product_Name}}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+            <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
             <div class="price">₪{{product.Product_Price}} :מחיר</div>
             <app-product-actions [product]="product"></app-product-actions>
         </mat-card>

@@ -1,5 +1,5 @@
 .sammyFiremanProducts {
-  background-image: url("/assets/backgrounds/greenBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/greenBg.png");
   text-align: center;
 }
 

@@ -5,7 +5,7 @@
   color: cornflowerblue;
   border: 8px solid transparent;
   text-decoration: none;
-  border-image: url("/assets/backgrounds/navsBorder.jpg") 10% round;
+  border-image: url("https://tns-be.herokuapp.com/backgrounds/navsBorder.jpg") 10% round;
   padding: 5px;
   margin: 3px;
 }

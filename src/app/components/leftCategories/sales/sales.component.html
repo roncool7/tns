@@ -2,14 +2,14 @@
     <app-navbar-left></app-navbar-left>
     <app-heading>מבצעים</app-heading>
     <hr>
-    <img *ngIf="loader" class="imageRobo" src="/assets/backgrounds/loading.gif" alt="טוען">
+    <img *ngIf="loader" class="imageRobo" src="https://tns-be.herokuapp.com/backgrounds/loading.gif" alt="טוען">
     <div *ngIf="!loader">
         <div class="about">
-            <img class="imageAbout" src="/assets/images/left-side-categories/sales/sale.jpg" alt="sales">
-            <img class="imageAbout" src="/assets/images/left-side-categories/sales/sale.jpg" alt="sales">
+            <img class="imageAbout" src="https://tns-be.herokuapp.com/images/left-side-categories/sales/sale.jpg" alt="sales">
+            <img class="imageAbout" src="https://tns-be.herokuapp.com/images/left-side-categories/sales/sale.jpg" alt="sales">
             <p>!המבצעים שלנו - מגוון מוצרים במחירים חסרי תקדים</p>
-            <img class="imageAbout" src="/assets/images/left-side-categories/sales/sale.jpg" alt="sales">
-            <img class="imageAbout" src="/assets/images/left-side-categories/sales/sale.jpg" alt="sales">
+            <img class="imageAbout" src="https://tns-be.herokuapp.com/images/left-side-categories/sales/sale.jpg" alt="sales">
+            <img class="imageAbout" src="https://tns-be.herokuapp.com/images/left-side-categories/sales/sale.jpg" alt="sales">
         </div>
         <hr>
         <div *ngFor="let product of salesProducts" class="allProducts">
@@ -18,7 +18,7 @@
                 <mat-card-header>
                     <mat-card-title>{{product.Product_Name}}</mat-card-title>
                 </mat-card-header>
-                <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+                <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
                 <div class="inline">
                     <div class="price">₪{{product.Product_Price}} :מחיר</div>
                     <div class="priceBefore">₪{{product.Product_Price + 20}}</div>

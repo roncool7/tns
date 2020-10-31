@@ -1,5 +1,5 @@
 .pageNotFound{
-    background-image: url("/assets/backgrounds/toysMain.jpg");
+    background-image: url("https://tns-be.herokuapp.com/backgrounds/toysMain.jpg");
     background-position: center;
     background-size: 71%;
     height: 468px;

@@ -1,4 +1,4 @@
-<img class="loadingImage" *ngIf="loadingImage" src="/assets/images/contact/loading.gif" alt="loading">
+<img class="loadingImage" *ngIf="loadingImage" src="https://tns-be.herokuapp.com/images/contact/loading.gif" alt="loading">
 <div class="contact" *ngIf="!loadingImage">
     <app-heading>צור קשר</app-heading>
     <hr>
@@ -55,7 +55,7 @@
             allowfullscreen></iframe>
     </div>
     <div class="imageCenter">
-        <img class="imageCenterContact" src="/assets/images/contact/contact.png" alt="marvel">
+        <img class="imageCenterContact" src="https://tns-be.herokuapp.com/images/contact/contact.png" alt="marvel">
     </div>
     <div class="formRight">
         <form [formGroup]="contactForm" class="contactForm" (ngSubmit)="contactForm.valid && contactSubmit()"

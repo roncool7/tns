@@ -4,15 +4,15 @@
     <hr>
     <mat-grid-list cols="3" rowHeight="2:1">
         <mat-grid-tile>
-            <img class="imageLego" src="/assets/images/all-brands/lego/lego2.png" alt="Left">
-            <img class="imageLego" src="/assets/images/all-brands/lego/lego3.png" alt="Left1">
+            <img class="imageLego" src="https://tns-be.herokuapp.com/images/all-brands/lego/lego2.png" alt="Left">
+            <img class="imageLego" src="https://tns-be.herokuapp.com/images/all-brands/lego/lego3.png" alt="Left1">
         </mat-grid-tile>
         <mat-grid-tile>
-            <img class="imageLego1" src="/assets/images/all-brands/lego/lego1.png" alt="center">
+            <img class="imageLego1" src="https://tns-be.herokuapp.com/images/all-brands/lego/lego1.png" alt="center">
         </mat-grid-tile>
         <mat-grid-tile>
-            <img class="imageLego" src="/assets/images/all-brands/lego/lego4.png" alt="Right">
-            <img class="imageLego" src="/assets/images/all-brands/lego/lego5.png" alt="Right1">
+            <img class="imageLego" src="https://tns-be.herokuapp.com/images/all-brands/lego/lego4.png" alt="Right">
+            <img class="imageLego" src="https://tns-be.herokuapp.com/images/all-brands/lego/lego5.png" alt="Right1">
         </mat-grid-tile>
     </mat-grid-list>
 
@@ -26,7 +26,7 @@
             <mat-card-header>
                 <mat-card-title>{{product.Product_Name}}</mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
+            <img mat-card-image src="https://tns-be.herokuapp.com/images/products/{{product.Product_Image}}" alt="מוצרים">
             <div class="price">₪{{product.Product_Price}} :מחיר</div>
             <app-product-actions [product]="product"></app-product-actions>
         </mat-card>

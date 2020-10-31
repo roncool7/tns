@@ -1,5 +1,5 @@
 .ages3-5 {
-  background-image: url("/assets/backgrounds/yellowBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/yellowBg.png");
   text-align: center;
 }
 
@@ -40,7 +40,7 @@
 }
 .addToCartBtn{
   background-color: limegreen;
-  color: white; 
+  color: white;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

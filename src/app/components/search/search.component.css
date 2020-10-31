@@ -1,5 +1,5 @@
 .search {
-  background-image: url("/assets/backgrounds/blueBg.png");
+  background-image: url("https://tns-be.herokuapp.com/backgrounds/blueBg.png");
   text-align: center;
 }
 
