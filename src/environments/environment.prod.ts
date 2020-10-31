@@ -3,6 +3,7 @@ export const environment = {
 };
 
 export const contactBaseUrl = "https://tns-be.herokuapp.com/api/contact";
+export const cartBaseUrl = "https://tns-be.herokuapp.com/api/cart";
 export const authBaseUrl = "https://tns-be.herokuapp.com/api/auth";
 export const auctionBaseUrl = "https://tns-be.herokuapp.com/api/auction";
 export const productsBaseUrl = "https://tns-be.herokuapp.com/api/products";
