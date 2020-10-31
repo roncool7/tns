@@ -11,5 +11,6 @@ export class ProductModel {
     public Supplier_ID ?: number,
     public Category_ID  ?: number,
     public Brand_ID   ?: number,
+    public Amount   ?: number,
   ) {}
 }
