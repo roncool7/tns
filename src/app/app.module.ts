@@ -86,6 +86,8 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
+import { MatRadioModule } from '@angular/material/radio';
 // Pipes
 import { FormatTimePipe } from './pipes/format-time.pipe';
 import {DetailsDialogComponent} from "./components/details-dialog/details-dialog.component";
@@ -187,6 +189,8 @@ import {ProductActionsComponent} from "./components/product-actions/product-acti
     MatCardModule,
     MatTabsModule,
     MatSliderModule,
+    MatTableModule,
+    MatRadioModule,
     ReactiveFormsModule.withConfig({ warnOnNgModelWithFormControl: 'never' }),
   ],
   providers: [],

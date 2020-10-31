@@ -10,8 +10,11 @@ import {CartService} from "../../../services/cart.service";
 })
 export class CartComponent implements OnInit {
 
-  products: ProductModel[] = [{Product_Image: '', Product_Name: 'NAme', Product_Price: 123}];
-  // products: ProductModel[] = [];
+  products: ProductModel[];
+  displayedColumns = ['Product_Image', 'Product_Name', 'Amount', 'Product_Price', 'Delete'];
+  invoiceDisplayedColumns = ['Product_Image', 'Product_Name', 'Amount', 'Product_Price'];
+  totalPrice = 0;
+
   step = 1;
 
   deliveryForm = new FormGroup({
@@ -28,12 +31,38 @@ export class CartComponent implements OnInit {
     comments: new FormControl(''),
   });
 
+  deliveryOption;
+  deliveryOptions = [
+    {title: 'משלוח רגיל-עד 5 ימי עסקים שליח עד הבית 30 ₪', price: 30},
+    {title: 'משלוח מהיר-עד 3 ימי עסקים שליח עד הבית 45 ₪', price: 45},
+    {title: 'משלוח אקספרס-מהיום להיום שליח עד הבית(מוגבל-לאזורים) 55 ₪', price: 55},
+    {title: 'איסוף עצמי-תחנה מרכזית דימונה', price: 0}];
+
   constructor(private cartService: CartService) {
 
   }
 
   ngOnInit(): void {
+    this.getProducts();
+    this.deliveryOption = this.deliveryOptions[0];
+  }
+
+  getProducts() {
     this.products = this.cartService.getProducts();
+    this.totalPrice = 0;
+    this.products.forEach((product) => {
+      this.totalPrice += (product.Amount * product.Product_Price);
+    });
+  }
+
+  removeFromCart(productID) {
+    this.cartService.removeFromCart(productID);
+    this.getProducts();
+  }
+
+  changeAmount(productID, newAmount) {
+    this.cartService.changeAmount(productID, newAmount);
+    this.getProducts();
   }
 
   next() {

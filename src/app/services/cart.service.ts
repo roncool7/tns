@@ -40,6 +40,14 @@ export class CartService {
     this.productsDict[Product_ID] = false;
   }
 
+  changeAmount(productId, newAmount) {
+    if (newAmount < 1) {
+      return;
+    }
+    const products = this.products.find(prod => prod.Product_ID === productId);
+    products.Amount = newAmount;
+  }
+
   async checkOut(details) {
     sessionStorage.removeItem('tns');
 

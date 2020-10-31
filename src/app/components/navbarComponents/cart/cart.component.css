@@ -11,9 +11,14 @@
   text-decoration: underline;
 }
 
+.cart-container {
+  display: flex;
+  justify-content: space-around;
+}
+
 /* part a cart image */
 .part-A-Cart-image {
-  height: 120px;
+  padding-right: 50px;
 }
 .imageCart {
   height: 450px;
@@ -60,6 +65,44 @@
 }
 
 .delivery-form {
-  display: flex;
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
   width: 600px;
+}
+
+.form-input {
+  width: 46%;
+  margin: 1%;
+}
+
+.form-textarea {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  margin: 20px;
+}
+
+th {
+  text-align: center !important;
+}
+
+.example-radio-group {
+  display: flex;
+  direction: rtl;
+  flex-direction: column;
+  margin: 10px;
+  background-color: white;
+  padding: 7px;
+  border-radius: 10px;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.mat-radio-label-content {
+  padding-right: 8px !important;
 }

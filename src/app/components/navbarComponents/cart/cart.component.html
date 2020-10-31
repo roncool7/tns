@@ -1,7 +1,3 @@
-<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
-<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
-<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>-->
-<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
 
 <div class="cart">
   <app-heading>העגלה שלי</app-heading>
@@ -10,85 +6,166 @@
     <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
     <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
   </div>
-  <div *ngIf="step === 1">
-    <mat-grid-list [cols]="products.length ? '2' : '3'">
-      <mat-grid-tile class="part-A-Cart-image">
-        <img class="imageCart" src="https://tns-be.herokuapp.com/images/cart/leftSide.png" alt="left">
-      </mat-grid-tile>
-      <mat-grid-tile *ngIf="products.length">
-        <div>
-          <table dir="rtl">
-            <tr>
-              <td>תמונה</td>
-              <td>שם המוצר</td>
-              <td>מחיר</td>
-              <td>מחיקה</td>
-            </tr>
-            <tr *ngFor="let product of products">
-              <td>{{product.Product_Image}}</td>
-              <td>{{product.Product_Name}}</td>
-              <td>{{product.Product_Price}}</td>
-              <td>מחיקה</td>
-            </tr>
-          </table>
-          <button (click)="next()">המשך</button>
-        </div>
-      </mat-grid-tile>
-      <mat-grid-tile class="part-B-Cart" *ngIf="!products.length">
-        <div class="emptyCartCustomer">
-          <img class="emptyCart" src="https://tns-be.herokuapp.com/images/cart/cartEmpty.png" alt="emptyCart">
-          <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
-          <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
-        </div>
-      </mat-grid-tile>
-      <mat-grid-tile class="part-C-text" *ngIf="!products.length">
-        <div class="cartRules">
-          <hr>
-          <p>. עגלת הקניות שלך ריקה *</p>
-          <p>. אנא הכנס מוצרים לעגלה בדף הבית *</p>
-          <p>. כל המוצרים נמצאים בקטגוריות משני צידי הדף *</p>
-          <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="cartLinks" routerLink="/contact">יצירת קשר</a> *</p>
-          <hr>
-        </div>
-      </mat-grid-tile>
-    </mat-grid-list>
+  <div *ngIf="step === 1" class="cart-container">
+    <div class="part-A-Cart-image">
+      <img class="imageCart" src="https://tns-be.herokuapp.com/images/cart/leftSide.png" alt="left">
+    </div>
+    <div *ngIf="products.length">
+      <table mat-table [dir]="'rtl'" [dataSource]="products" class="mat-elevation-z8" style="min-width: 700px;">
+        <ng-container matColumnDef="Product_Image">
+          <th mat-header-cell *matHeaderCellDef> תמונה</th>
+          <td mat-cell *matCellDef="let element"><img mat-card-image
+                                                      src="https://tns-be.herokuapp.com/images/products/{{element.Product_Image}}"
+                                                      alt="מוצרים"/></td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="Product_Name">
+          <th mat-header-cell *matHeaderCellDef> שם המוצר</th>
+          <td mat-cell *matCellDef="let element"> {{element.Product_Name}}</td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Amount">
+          <th mat-header-cell *matHeaderCellDef> כמות</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button (click)="changeAmount(element.Product_ID, element.Amount + 1)">+</button>
+            {{element.Amount}}
+            <button mat-button (click)="changeAmount(element.Product_ID, element.Amount - 1)">-</button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="Product_Price">
+          <th mat-header-cell *matHeaderCellDef> מחיר</th>
+          <td mat-cell *matCellDef="let element"> {{element.Product_Price * element.Amount}}₪</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Delete">
+          <th mat-header-cell *matHeaderCellDef> מחיקה</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="warn" (click)="removeFromCart(element.Product_ID)">מחק מוצר</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <div style="display: flex; justify-content: space-between">
+        <button mat-raised-button [disabled]="totalPrice < 50" (click)="next()" color="primary">המשך</button>
+        <span>סה״כ מחיר: {{totalPrice}}</span>
+      </div>
+    </div>
+    <div class="part-B-Cart" *ngIf="!products.length">
+      <div class="emptyCartCustomer">
+        <img class="emptyCart" src="https://tns-be.herokuapp.com/images/cart/cartEmpty.png" alt="emptyCart">
+        <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
+        <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
+      </div>
+    </div>
+    <div class="part-C-text" *ngIf="!products.length">
+      <div class="cartRules">
+        <hr>
+        <p>. עגלת הקניות שלך ריקה *</p>
+        <p>. אנא הכנס מוצרים לעגלה בדף הבית *</p>
+        <p>. כל המוצרים נמצאים בקטגוריות משני צידי הדף *</p>
+        <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="cartLinks" routerLink="/contact">יצירת קשר</a> *</p>
+        <hr>
+      </div>
+    </div>
   </div>
   <div *ngIf="step === 2" class="delivery-container">
+    <div>
+      <div style="background-color: white;padding: 7px;border-radius: 10px;margin: 10px;">
+        <table mat-table [dir]="'rtl'" [dataSource]="products" class="mat-elevation-z8" style="width: 500px">
+          <ng-container matColumnDef="Product_Image">
+            <th mat-header-cell *matHeaderCellDef> תמונה</th>
+            <td mat-cell *matCellDef="let element"><img mat-card-image
+                                                        src="https://tns-be.herokuapp.com/images/products/{{element.Product_Image}}"
+                                                        alt="מוצרים"/></td>
+          </ng-container>
+
+          <!-- Weight Column -->
+          <ng-container matColumnDef="Product_Name">
+            <th mat-header-cell *matHeaderCellDef> שם המוצר</th>
+            <td mat-cell *matCellDef="let element"> {{element.Product_Name}}</td>
+          </ng-container>
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="Amount">
+            <th mat-header-cell *matHeaderCellDef> כמות</th>
+            <td mat-cell *matCellDef="let element"> {{element.Amount}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="Product_Price">
+            <th mat-header-cell *matHeaderCellDef> מחיר</th>
+            <td mat-cell *matCellDef="let element"> {{element.Product_Price * element.Amount}}₪</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="invoiceDisplayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: invoiceDisplayedColumns;"></tr>
+        </table>
+
+      </div>
+      <mat-radio-group
+        aria-labelledby="example-radio-group-label"
+        class="example-radio-group"
+        [(ngModel)]="deliveryOption">
+        <mat-radio-button class="example-radio-button" *ngFor="let elem of deliveryOptions" [value]="elem">
+          {{elem.title}}
+        </mat-radio-button>
+      </mat-radio-group>
+      <div style="background-color: white;padding: 7px;border-radius: 10px;margin: 10px;">סה״כ מחיר: {{totalPrice +
+        deliveryOption.price}}
+      </div>
+    </div>
+
     <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()" class="delivery-form row" dir="rtl">
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="firstName" placeholder="שם פרטי"/>
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="lastName" placeholder="שם משפחה"/>
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="street" placeholder="רחוב">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="houseNumber" placeholder="מספר בית">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="floor" placeholder="קומה (אופציונלי)">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="aprtNumber" placeholder="מספר דירה (אופציונלי)">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="city" placeholder="עיר">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="zip" placeholder="מיקוד (אופציונלי)">
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="phone" placeholder="טלפון נייד"/>
-      </div>
-      <div class="form-group col-md-6">
-        <input type="text" class="form-control" formControlName="email" placeholder="דואר אלקטרוני"/>
-      </div>
-
-      <textarea type="text" class="form-control" formControlName="comments" placeholder="הערות כלליות להזמנה (אופציונלי)"></textarea>
-
-      <button type="submit" [disabled]="!deliveryForm.valid">Submit</button>
+      <mat-form-field class="form-input">
+        <mat-label>שם פרטי</mat-label>
+        <input matInput placeholder="שם פרטי" formControlName="firstName">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>שם משפחה</mat-label>
+        <input matInput placeholder="שם משפחה" formControlName="lastName">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>רחוב</mat-label>
+        <input matInput placeholder="רחוב" formControlName="street">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>מספר בית</mat-label>
+        <input matInput placeholder="מספר בית" formControlName="houseNumber">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>קומה (אופציונלי)</mat-label>
+        <input matInput placeholder="קומה (אופציונלי)" formControlName="floor">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>מספר דירה (אופציונלי)</mat-label>
+        <input matInput placeholder="מספר דירה (אופציונלי)" formControlName="aprtNumber">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>עיר</mat-label>
+        <input matInput placeholder="עיר" formControlName="city">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>מיקוד (אופציונלי)</mat-label>
+        <input matInput placeholder="מיקוד (אופציונלי)" formControlName="zip">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>טלפון נייד</mat-label>
+        <input matInput placeholder="טלפון נייד" formControlName="phone">
+      </mat-form-field>
+      <mat-form-field class="form-input">
+        <mat-label>דואר אלקטרוני</mat-label>
+        <input matInput placeholder="דואר אלקטרוני" formControlName="email">
+      </mat-form-field>
+      <mat-form-field class="form-textarea">
+        <mat-label>הערות כלליות להזמנה (אופציונלי)</mat-label>
+        <textarea matInput placeholder="הערות כלליות להזמנה (אופציונלי)" formControlName="comments"></textarea>
+      </mat-form-field>
+      <button mat-button color="warn" (click)="step = 1">חזור לעגלה</button>
+      <button mat-raised-button [disabled]="!deliveryForm.valid" color="primary">שלח הזמנה</button>
     </form>
   </div>
 </div>
