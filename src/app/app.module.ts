@@ -89,6 +89,7 @@ import { MatSliderModule } from '@angular/material/slider';
 // Pipes
 import { FormatTimePipe } from './pipes/format-time.pipe';
 import {DetailsDialogComponent} from "./components/details-dialog/details-dialog.component";
+import {ProductActionsComponent} from "./components/product-actions/product-actions.component";
 
 
 
@@ -161,7 +162,8 @@ import {DetailsDialogComponent} from "./components/details-dialog/details-dialog
     PlayMobileComponent,
     SearchComponent,
     HatchimalsComponent,
-    DetailsDialogComponent
+    DetailsDialogComponent,
+    ProductActionsComponent
   ],
   imports: [
     BrowserModule,

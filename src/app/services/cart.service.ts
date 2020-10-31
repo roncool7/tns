@@ -7,6 +7,7 @@ import {ProductModel} from '../models/product-model';
 export class CartService {
 
   products: ProductModel[] = [];
+  productsDict = {};
 
   constructor() { }
 
@@ -14,16 +15,17 @@ export class CartService {
     return this.products;
   }
 
-  removeFromCart(Product_ID) {
-    // this.products.map(product => {
-    //   if (product.Product_ID === Product_ID) {
-    //
-    //   }
-    //   return product;
-    // });
-  }
-
   addToCart(product: ProductModel): void {
     this.products.push(product);
+    this.productsDict[product.Product_ID] = true;
+  }
+
+  checkProductInCart(product: ProductModel) {
+    return this.productsDict[product.Product_ID] ? this.productsDict[product.Product_ID] : false;
+  }
+
+  removeFromCart(Product_ID) {
+    this.products = this.products.filter(product => product.Product_ID !== Product_ID);
+    this.productsDict[Product_ID] = false;
   }
 }
