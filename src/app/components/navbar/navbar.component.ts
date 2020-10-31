@@ -1,6 +1,7 @@
 import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {CartService} from '../../services/cart.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,12 +10,13 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
   public userName: string;
-  public itemsNumber:number = 0;
+  // public itemsNumber:number = 0;
   public searchValue: string;
 
   constructor(
     private router: Router,
-    private myAuthService: AuthService
+    private myAuthService: AuthService,
+    public cartService: CartService
   ) {}
 
 

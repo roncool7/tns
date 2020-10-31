@@ -15,7 +15,7 @@
                     class="material-icons">list</span></a>
             <a class="navbarRoute" routerLink="/cart" routerLinkActive="active">העגלה שלי<span
                     class="material-icons" style="color:greenyellow;">shopping_cart</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <div class="cartItemsNumber" matBadge="{{itemsNumber}}" matBadgeOverlap="false" matBadgeSize="medium"></div>
+            <div class="cartItemsNumber" matBadge="{{this.cartService.products.length}}" matBadgeOverlap="false" matBadgeSize="medium"></div>
             <a class="welcomeText">ברוך הבא: {{userName}}</a>
         </nav>
     </div>
