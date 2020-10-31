@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {ProductModel} from "../../../models/product-model";
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {CartService} from "../../../services/cart.service";
+import {Router} from "@angular/router";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-cart',
@@ -38,7 +40,9 @@ export class CartComponent implements OnInit {
     {title: 'משלוח אקספרס-מהיום להיום שליח עד הבית(מוגבל-לאזורים) 55 ₪', price: 55},
     {title: 'איסוף עצמי-תחנה מרכזית דימונה', price: 0}];
 
-  constructor(private cartService: CartService) {
+  constructor(private cartService: CartService,
+              private router: Router,
+              private snackBar: MatSnackBar) {
 
   }
 
@@ -69,8 +73,16 @@ export class CartComponent implements OnInit {
     this.step = 2;
   }
 
-  onSubmit() {
-    const res = this.cartService.checkOut(this.deliveryForm.value);
+  async onSubmit() {
+    const res = await this.cartService.checkOut(this.deliveryForm.value, this.deliveryOption);
+
+    if (res !== 'Success') {
+      this.snackBar.open('נסה שנית', 'שגיאה', {duration: 5000});
+    } else {
+      this.cartService.emptyCart();
+      this.snackBar.open('ניצור קשר בקרוב', 'הזמנה נשלחה', {duration: 5000});
+      this.router.navigateByUrl("/home");
+    }
   }
 
 }

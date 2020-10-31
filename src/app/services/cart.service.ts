@@ -37,27 +37,30 @@ export class CartService {
 
   removeFromCart(Product_ID) {
     this.products = this.products.filter(product => product.Product_ID !== Product_ID);
-    this.productsDict[Product_ID] = false;
+    this.productsDict[Product_ID] = 0;
+    sessionStorage.setItem('tns', JSON.stringify(this.products));
   }
 
   changeAmount(productId, newAmount) {
-    if (newAmount < 1) {
+    if (newAmount < 1 || newAmount > 10) {
       return;
     }
+
     const products = this.products.find(prod => prod.Product_ID === productId);
     products.Amount = newAmount;
+    this.productsDict[productId] = newAmount;
+    sessionStorage.setItem('tns', JSON.stringify(this.products));
   }
 
-  async checkOut(details) {
+  emptyCart() {
     sessionStorage.removeItem('tns');
-
-    const res = await this.myHttpClient
-      .post<ContactModel>(cartBaseUrl + "/checkout", {products: this.products, details})
-      .toPromise();
-
     this.products = [];
     this.productsDict = {};
+  }
 
-    return res;
+  checkOut(details, deliveryOption) {
+    return this.myHttpClient
+      .post<ContactModel>(cartBaseUrl + "/checkout", {products: this.products, details, deliveryOption: deliveryOption.title})
+      .toPromise();
   }
 }

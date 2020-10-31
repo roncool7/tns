@@ -106,3 +106,9 @@ th {
 .mat-radio-label-content {
   padding-right: 8px !important;
 }
+
+.image {
+  height: 30px;
+  width: 30px;
+  margin-top: 5px;
+}

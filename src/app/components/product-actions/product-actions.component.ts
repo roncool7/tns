@@ -31,7 +31,7 @@ export class ProductActionsComponent implements OnInit{
     this.actualAmount = this.amount;
     this.product.Amount = this.amount;
     this.cartService.addToCart(this.product);
-    this.snackBar.open('המוצר נוסף לעגלה', '', {duration: 3000});
+    this.snackBar.open('המוצר נוסף לעגלה', 'עגלת קניות', {duration: 3000});
   }
 
   setAmount(amount: number) {
