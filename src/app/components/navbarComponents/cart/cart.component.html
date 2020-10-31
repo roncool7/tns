@@ -1,30 +1,88 @@
 <div class="cart">
-    <app-heading>העגלה שלי</app-heading>
-    <hr>
-    <div class="cartMessages">
-        <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
-        <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
-    </div>
-    <mat-grid-list cols="3">
-        <mat-grid-tile class="part-A-Cart-image">
-            <img class="imageCart" src="/assets/images/cart/leftSide.png" alt="left">
-        </mat-grid-tile>
-        <mat-grid-tile class="part-B-Cart">
-            <div class="emptyCartCustomer">
-                <img class="emptyCart" src="/assets/images/cart/cartEmpty.png" alt="emptyCart">
-                <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
-                <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
-            </div>
-        </mat-grid-tile>
-        <mat-grid-tile class="part-C-text">
-            <div class="cartRules">
-                <hr>
-                <p>. עגלת הקניות שלך ריקה *</p>
-                <p>. אנא הכנס מוצרים לעגלה בדף הבית *</p>
-                <p>. כל המוצרים נמצאים בקטגוריות משני צידי הדף *</p>
-                <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="cartLinks" routerLink="/contact">יצירת קשר</a> *</p>
-                <hr>
-            </div>
-        </mat-grid-tile>
+  <app-heading>העגלה שלי</app-heading>
+  <hr>
+  <div class="cartMessages">
+    <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
+    <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
+  </div>
+  <div *ngIf="step === 1">
+    <mat-grid-list [cols]="products.length ? '2' : '3'">
+      <mat-grid-tile class="part-A-Cart-image">
+        <img class="imageCart" src="/assets/images/cart/leftSide.png" alt="left">
+      </mat-grid-tile>
+      <mat-grid-tile *ngIf="products.length">
+        <div>
+          <table dir="rtl">
+            <tr>
+              <td>תמונה</td>
+              <td>שם המוצר</td>
+              <td>מחיר</td>
+              <td>מחיקה</td>
+            </tr>
+            <tr *ngFor="let product of products">
+              <td>{{product.Product_Image}}</td>
+              <td>{{product.Product_Name}}</td>
+              <td>{{product.Product_Price}}</td>
+              <td>מחיקה</td>
+            </tr>
+          </table>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile class="part-B-Cart" *ngIf="!products.length">
+        <div class="emptyCartCustomer">
+          <img class="emptyCart" src="/assets/images/cart/cartEmpty.png" alt="emptyCart">
+          <div class="emptyCartTextMain">עגלת הקניות שלך ריקה</div>
+          <button mat-button class="goToHome mat-raised-button" type="button" routerLink="/home">לדף הבית</button>
+        </div>
+      </mat-grid-tile>
+      <mat-grid-tile class="part-C-text" *ngIf="!products.length">
+        <div class="cartRules">
+          <hr>
+          <p>. עגלת הקניות שלך ריקה *</p>
+          <p>. אנא הכנס מוצרים לעגלה בדף הבית *</p>
+          <p>. כל המוצרים נמצאים בקטגוריות משני צידי הדף *</p>
+          <p>. בכל בעיה \ התייעצות \ שאלה יש לפנות <a class="cartLinks" routerLink="/contact">יצירת קשר</a> *</p>
+          <hr>
+        </div>
+      </mat-grid-tile>
     </mat-grid-list>
+  </div>
+  <div *ngIf="step === 2" class="delivery-container">
+    <form [formGroup]="deliveryForm" (ngSubmit)="onSubmit()" class="delivery-form row" dir="rtl">
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="firstName" placeholder="שם פרטי"/>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="lastName" placeholder="שם משפחה"/>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="street" placeholder="רחוב">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="houseNumber" placeholder="מספר בית">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="floor" placeholder="קומה (אופציונלי)">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="aprtNumber" placeholder="מספר דירה (אופציונלי)">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="city" placeholder="עיר">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="zip" placeholder="מיקוד (אופציונלי)">
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="phone" placeholder="טלפון נייד"/>
+      </div>
+      <div class="form-group col-md-6">
+        <input type="text" class="form-control" formControlName="email" placeholder="דואר אלקטרוני"/>
+      </div>
+
+      <textarea type="text" class="form-control" formControlName="comments" placeholder="הערות כלליות להזמנה (אופציונלי)"></textarea>
+
+      <button type="submit" [disabled]="!deliveryForm.valid">Submit</button>
+    </form>
+  </div>
 </div>

@@ -53,3 +53,13 @@
   background-color: black;
   color: white;
 }
+
+.delivery-container {
+  display: flex;
+  justify-content: center;
+}
+
+.delivery-form {
+  display: flex;
+  width: 600px;
+}
