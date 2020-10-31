@@ -14,6 +14,15 @@ export class CartService {
     return this.products;
   }
 
+  removeFromCart(Product_ID) {
+    // this.products.map(product => {
+    //   if (product.Product_ID === Product_ID) {
+    //
+    //   }
+    //   return product;
+    // });
+  }
+
   addToCart(product: ProductModel): void {
     this.products.push(product);
   }
