@@ -4,6 +4,7 @@
   <div class="cartMessages">
     <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
     <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
+    <button (click)="onSubmit()"></button>
   </div>
   <div *ngIf="step === 1">
     <mat-grid-list [cols]="products.length ? '2' : '3'">

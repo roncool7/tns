@@ -9,7 +9,14 @@ export class CartService {
   products: ProductModel[] = [];
   productsDict = {};
 
-  constructor() { }
+  constructor() {
+    const sessionData = JSON.parse(sessionStorage.getItem('tns'));
+    this.products = sessionData ? sessionData : [];
+
+    this.products.forEach(product => {
+      this.productsDict[product.Product_ID] = product.Amount;
+    });
+  }
 
   getProducts(): ProductModel[] {
     return this.products;
@@ -18,6 +25,7 @@ export class CartService {
   addToCart(product: ProductModel): void {
     this.products.push(product);
     this.productsDict[product.Product_ID] = product.Amount;
+    sessionStorage.setItem('tns', JSON.stringify(this.products));
   }
 
   getProductAmount(product: ProductModel) {
@@ -27,5 +35,15 @@ export class CartService {
   removeFromCart(Product_ID) {
     this.products = this.products.filter(product => product.Product_ID !== Product_ID);
     this.productsDict[Product_ID] = false;
+  }
+
+  checkOut() {
+    console.log(this.products);
+    sessionStorage.removeItem('tns');
+
+    //
+
+    this.products = [];
+    this.productsDict = {};
   }
 }

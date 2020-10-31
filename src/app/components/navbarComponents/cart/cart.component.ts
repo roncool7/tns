@@ -39,6 +39,7 @@ export class CartComponent implements OnInit {
 
   onSubmit() {
     console.log(this.deliveryForm);
+    this.cartService.checkOut();
   }
 
 }
