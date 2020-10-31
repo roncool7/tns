@@ -17,11 +17,11 @@ export class CartService {
 
   addToCart(product: ProductModel): void {
     this.products.push(product);
-    this.productsDict[product.Product_ID] = true;
+    this.productsDict[product.Product_ID] = product.Amount;
   }
 
-  checkProductInCart(product: ProductModel) {
-    return this.productsDict[product.Product_ID] ? this.productsDict[product.Product_ID] : false;
+  getProductAmount(product: ProductModel) {
+    return this.productsDict[product.Product_ID] ? this.productsDict[product.Product_ID] : 0;
   }
 
   removeFromCart(Product_ID) {

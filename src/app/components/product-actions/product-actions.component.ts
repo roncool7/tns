@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ProductModel} from '../../models/product-model';
 import {CartService} from '../../services/cart.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import {ProductsService} from "../../services/products.service";
 import {DetailsDialogComponent} from "../details-dialog/details-dialog.component";
 import {MatDialog} from "@angular/material/dialog";
 
@@ -14,6 +13,8 @@ import {MatDialog} from "@angular/material/dialog";
 export class ProductActionsComponent implements OnInit{
 
   @Input() product: ProductModel;
+  actualAmount;
+  amount = 1;
   isInCart: boolean;
 
   constructor(private cartService: CartService,
@@ -21,13 +22,20 @@ export class ProductActionsComponent implements OnInit{
               private snackBar: MatSnackBar) { }
 
   ngOnInit() {
-    this.isInCart = this.cartService.checkProductInCart(this.product);
+    this.actualAmount = this.cartService.getProductAmount(this.product);
+    this.isInCart = this.actualAmount > 0;
   }
 
   onAddToCart() {
-    this.cartService.addToCart(this.product);
     this.isInCart = true;
+    this.actualAmount = this.amount;
+    this.product.Amount = this.amount;
+    this.cartService.addToCart(this.product);
     this.snackBar.open('המוצר נוסף לעגלה', '', {duration: 3000});
+  }
+
+  setAmount(amount: number) {
+    this.amount = this.amount + amount;
   }
 
   onDetailsClicked() {

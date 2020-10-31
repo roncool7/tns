@@ -1,15 +1,12 @@
 <mat-card-actions>
   <div class="number-input">
-    <button
-      onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-    <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1"
-           required>
-    <button class="plus"
-            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
+    <button (click)="setAmount(-1)" [disabled]="amount <= 1 || isInCart"></button>
+    <span class="amountInput">{{isInCart ? actualAmount : amount}}</span>
+    <button class="plus" (click)="setAmount(1)" [disabled]="amount >= 10 || isInCart"></button>
   </div>
   <br>
-  <button mat-raised-button *ngIf="product.Product_In_Stock != 0 && this.isInCart === false" class="addToCartBtn" (click)="onAddToCart()">הוספה לעגלה</button>
-  <button mat-raised-button *ngIf="this.isInCart === true" class="inCart">המוצר בעגלה</button>
+  <button mat-raised-button *ngIf="product.Product_In_Stock != 0 && isInCart === false" class="addToCartBtn" (click)="onAddToCart()">הוספה לעגלה</button>
+  <button mat-raised-button *ngIf="isInCart === true" class="inCart">המוצר בעגלה</button>
   <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">אזל המלאי</button>
   <button mat-raised-button color="primary" (click)="onDetailsClicked()">מידע נוסף</button>
 </mat-card-actions>
