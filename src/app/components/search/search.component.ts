@@ -3,6 +3,9 @@ import { ProductModel } from './../../models/product-model';
 import { Component, OnInit } from '@angular/core';
 import {MatDialog} from "@angular/material/dialog";
 import {DetailsDialogComponent} from "../details-dialog/details-dialog.component";
+import {FormControl} from "@angular/forms";
+import {isString} from "util";
+import {debounceTime, distinctUntilChanged, filter} from "rxjs/operators";
 
 
 @Component({
@@ -13,24 +16,25 @@ import {DetailsDialogComponent} from "../details-dialog/details-dialog.component
 export class SearchComponent implements OnInit {
   public items: ProductModel[];
   public searchValue: string;
+  searchTerm: FormControl = new FormControl();
 
-  constructor(private mySearchService: SearchService,
-              private dialog: MatDialog) {}
-
-  ngOnInit(): void {}
-
-  // Search
-  public async search(text) {
-    try {
-      if (text.trim() === '' || text.includes("'")) {
-        this.items = [];
-        return;
+  constructor(private mySearchService: SearchService) {
+    this.searchTerm.valueChanges.pipe(
+      debounceTime(250),
+      distinctUntilChanged(),
+      filter((input) => !!input && isString(input))
+    ).subscribe(async input => {
+      try {
+        if (input.trim() === '' || input.includes("'")) {
+          this.items = [];
+          return;
+        }
+        this.items = await this.mySearchService.search(input);
+      } catch (err) {
+        alert(err.message);
       }
-      this.items = await this.mySearchService.search(text);
-    } catch (err) {
-      alert(err.message);
-    }
+    });
   }
 
-
+  ngOnInit(): void {}
 }

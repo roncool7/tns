@@ -6,11 +6,12 @@
             <img class="searchImages" src="/assets/backgrounds/searchRight.png" alt="טוען">
         </mat-grid-tile>
         <mat-grid-tile>
-            <mat-form-field class="searchField">
                 <mat-label>חפש מוצר שברצונך לרכוש</mat-label>
-                <input matInput [(ngModel)]="searchValue" placeholder="חיפוש מוצר" type="search"
-                    (input)="search($event.target.value)">
-            </mat-form-field>
+                <input type="search"
+                       [placeholder]="'חיפוש מוצר'"
+                       [id]="'id'"
+                       [(ngModel)]="searchValue"
+                       [formControl]="searchTerm">
         </mat-grid-tile>
         <mat-grid-tile>
             <img class="searchImages" src="/assets/backgrounds/searchLeft.png" alt="טוען">

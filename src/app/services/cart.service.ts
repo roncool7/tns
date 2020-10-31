@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import {ProductModel} from '../models/product-model';
+import {HttpClient} from "@angular/common/http";
+import {ContactModel} from "../models/contactModel";
+import {cartBaseUrl} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +12,7 @@ export class CartService {
   products: ProductModel[] = [];
   productsDict = {};
 
-  constructor() {
+  constructor(private myHttpClient: HttpClient) {
     const sessionData = JSON.parse(sessionStorage.getItem('tns'));
     this.products = sessionData ? sessionData : [];
 
@@ -37,13 +40,16 @@ export class CartService {
     this.productsDict[Product_ID] = false;
   }
 
-  checkOut() {
-    console.log(this.products);
+  async checkOut(details) {
     sessionStorage.removeItem('tns');
 
-    //
+    const res = await this.myHttpClient
+      .post<ContactModel>(cartBaseUrl + "/checkout", {products: this.products, details})
+      .toPromise();
 
     this.products = [];
     this.productsDict = {};
+
+    return res;
   }
 }

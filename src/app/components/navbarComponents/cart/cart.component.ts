@@ -34,12 +34,14 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
     this.products = this.cartService.getProducts();
-    console.log(this.products);
+  }
+
+  next() {
+    this.step = 2;
   }
 
   onSubmit() {
-    console.log(this.deliveryForm);
-    this.cartService.checkOut();
+    const res = this.cartService.checkOut(this.deliveryForm.value);
   }
 
 }
