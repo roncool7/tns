@@ -24,17 +24,7 @@
                 </mat-card-header>
                 <img mat-card-image src="/assets/images/products/{{product.Product_Image}}" alt="מוצרים">
                 <div class="price">₪{{product.Product_Price}} :מחיר</div>
-                <mat-card-actions>
-                    <div class="number-input">
-                        <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()"></button>
-                        <input class="amountInput" type="number" #amount min="1" max="10" value="1" step="1" required>
-                        <button class="plus"
-                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()"></button>
-                    </div>
-                    <br>
-                    <button mat-raised-button class="addToCartBtn">הוספה לעגלה</button>
-                    <button mat-raised-button color="primary" (click)="onDetailsClicked(product)">מידע נוסף</button>
-                </mat-card-actions>
+              <app-product-actions [product]="product"></app-product-actions>
             </mat-card>
         </div>
     </div>
