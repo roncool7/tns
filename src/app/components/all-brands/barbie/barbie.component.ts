@@ -18,13 +18,6 @@ export class BarbieComponent implements OnInit {
     this.barbieProducts = await this.myProductsBrandsService.getBarbieProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

@@ -19,13 +19,6 @@ export class HelloKittyComponent implements OnInit {
     this.helloKittyProducts = await this.myProductsBrandsService.getHelloKittyProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

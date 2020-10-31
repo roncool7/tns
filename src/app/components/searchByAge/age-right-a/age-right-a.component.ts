@@ -89,12 +89,5 @@ export class AgeRightAComponent implements OnInit {
     this.snackBar.open(message, action, { duration: 5000 });
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 }

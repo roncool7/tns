@@ -19,13 +19,6 @@ export class PlayMobileComponent implements OnInit {
     this.playMobilProducts = await this.myProductsBrandsService.getPlayMobilProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

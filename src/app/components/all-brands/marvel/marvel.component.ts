@@ -18,13 +18,6 @@ export class MarvelComponent implements OnInit {
     this.marvelProducts = await this.myProductsBrandsService.getMarvelProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

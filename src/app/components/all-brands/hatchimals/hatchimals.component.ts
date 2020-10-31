@@ -19,13 +19,6 @@ export class HatchimalsComponent implements OnInit {
     this.hatchimalsProducts = await this.myProductsBrandsService.getHatchimalsProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

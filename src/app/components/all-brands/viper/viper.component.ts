@@ -18,12 +18,5 @@ export class ViperComponent implements OnInit {
     this.viperProducts = await this.myProductsBrandsService.getViperProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 }

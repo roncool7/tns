@@ -18,13 +18,6 @@ export class NerfComponent implements OnInit {
     this.nerfProducts = await this.myProductsBrandsService.getNerfProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

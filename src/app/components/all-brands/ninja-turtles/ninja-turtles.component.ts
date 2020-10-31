@@ -18,13 +18,6 @@ export class NinjaTurtlesComponent implements OnInit {
     this.ninjaTurtlesProducts = await this.myProductsBrandsService.getNinjaTurtlesProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

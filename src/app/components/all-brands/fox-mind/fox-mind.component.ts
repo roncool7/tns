@@ -18,12 +18,5 @@ export class FoxMindComponent implements OnInit {
     this.foxMindProducts = await this.myProductsBrandsService.getFoxMindProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 }

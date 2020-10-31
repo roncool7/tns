@@ -19,13 +19,6 @@ export class FisherPriceComponent implements OnInit {
     this.fisherPriceProducts = await this.myProductsBrandsService.getFisherPriceProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

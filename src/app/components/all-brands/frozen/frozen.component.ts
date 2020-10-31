@@ -18,13 +18,6 @@ export class FrozenComponent implements OnInit {
     this.frozenProducts = await this.myProductsBrandsService.getFrozenProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

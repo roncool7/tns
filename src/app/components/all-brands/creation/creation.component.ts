@@ -18,13 +18,6 @@ export class CreationComponent implements OnInit {
     this.creationProducts = await this.myProductsBrandsService.getCreationProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

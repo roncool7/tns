@@ -19,13 +19,6 @@ export class LegoComponent implements OnInit {
     this.legoProducts = await this.myProductsBrandsService.getLegoProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

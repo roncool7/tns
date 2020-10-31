@@ -19,13 +19,6 @@ export class BenTenComponent implements OnInit {
     this.benTenProducts = await this.myProductsBrandsService.getBenTenProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

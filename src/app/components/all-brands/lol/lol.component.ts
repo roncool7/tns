@@ -18,13 +18,6 @@ export class LolComponent implements OnInit {
     this.lolProducts = await this.myProductsBrandsService.getLolProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

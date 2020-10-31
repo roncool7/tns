@@ -18,13 +18,6 @@ export class PawPatrolComponent implements OnInit {
     this.pawPatrolProducts = await this.myProductsBrandsService.getPawPatrolProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }

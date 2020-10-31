@@ -19,13 +19,6 @@ export class PjMasksComponent implements OnInit {
     this.pjMasksProducts = await this.myProductsBrandsService.getPjProducts();
   }
 
-  onDetailsClicked(product) {
-    const dialogRef = this.dialog.open(DetailsDialogComponent, {
-      data: {product},
-      disableClose: true,
-      height: '400px',
-      width: '600px',
-    });
-  }
+
 
 }
