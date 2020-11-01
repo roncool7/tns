@@ -20,15 +20,15 @@ export class CartComponent implements OnInit {
   step = 1;
 
   deliveryForm = new FormGroup({
-    firstName: new FormControl('', Validators.required),
-    lastName: new FormControl('', Validators.required),
+    firstName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(10), Validators.pattern('^[\u05D0-\u05F3]+$')]),
+    lastName: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(15), Validators.pattern('^[\u05D0-\u05F3]+(?: [\u05D0-\u05F3]+)*$')]),
     street: new FormControl('', Validators.required),
     houseNumber: new FormControl('', Validators.required),
     floor: new FormControl(''),
     aprtNumber: new FormControl(''),
     city: new FormControl('', Validators.required),
     zip: new FormControl(''),
-    phone: new FormControl('', [Validators.required, Validators.min(10), Validators.maxLength(10), Validators.pattern("^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$")]),
+    phone: new FormControl('', [Validators.required, Validators.min(10), Validators.maxLength(10), Validators.pattern('^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$')]),
     email: new FormControl('', [Validators.required, Validators.email]),
     comments: new FormControl(''),
   });
@@ -64,6 +64,11 @@ export class CartComponent implements OnInit {
     this.getProducts();
   }
 
+  clearCart() {
+    this.cartService.emptyCart();
+    this.getProducts();
+  }
+
   changeAmount(productID, newAmount) {
     this.cartService.changeAmount(productID, newAmount);
     this.getProducts();
@@ -75,6 +80,14 @@ export class CartComponent implements OnInit {
       this.deliveryOption = this.deliveryOptions[0];
     }
     this.step = 2;
+  }
+
+  back() {
+    if (this.totalPrice > 300) {
+      this.deliveryOptions = this.deliveryOptions.slice(1);
+      this.deliveryOption = this.deliveryOptions[0];
+    }
+    this.step = 1;
   }
 
   async onSubmit() {
