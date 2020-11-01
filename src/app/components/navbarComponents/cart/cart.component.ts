@@ -97,7 +97,7 @@ export class CartComponent implements OnInit {
       this.snackBar.open('נסה שנית', 'שגיאה', {duration: 5000});
     } else {
       this.cartService.emptyCart();
-      this.snackBar.open('ניצור קשר בקרוב', 'הזמנה נשלחה', {duration: 5000});
+      this.snackBar.open('ניצור קשר בקרוב', 'הזמנה נשלחה בהצלחה', {duration: 5000});
       this.router.navigateByUrl("/home");
     }
   }
