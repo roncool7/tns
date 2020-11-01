@@ -28,8 +28,8 @@ export class CartComponent implements OnInit {
     aprtNumber: new FormControl(''),
     city: new FormControl('', Validators.required),
     zip: new FormControl(''),
-    phone: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.required),
+    phone: new FormControl('', [Validators.required, Validators.min(10), Validators.maxLength(10), Validators.pattern("^0(5[^7]|[2-4]|[8-9]|7[0-9])[0-9]{7}$")]),
+    email: new FormControl('', [Validators.required, Validators.email]),
     comments: new FormControl(''),
   });
 
@@ -70,6 +70,10 @@ export class CartComponent implements OnInit {
   }
 
   next() {
+    if (this.totalPrice > 300) {
+      this.deliveryOptions = [{title: 'משלוח חינם בקנייה מעל 300 ש״ח', price: 0}].concat(this.deliveryOptions);
+      this.deliveryOption = this.deliveryOptions[0];
+    }
     this.step = 2;
   }
 

@@ -107,8 +107,13 @@ th {
   padding-right: 8px !important;
 }
 
+.table-container {
+  height: 480px;
+  overflow: auto;
+}
+
 .image {
-  height: 30px;
-  width: 30px;
+  height: 100px;
+  width: 100px;
   margin-top: 5px;
 }
