@@ -31,6 +31,10 @@ export class AuctionComponent implements OnInit, OnDestroy {
   public lastOfferNameLeft: string;
   public lastOfferNameCenter: string;
   public lastOfferNameRight: string;
+  // Auction is over
+  public auctionFinished: boolean = false;
+  // Responsive for mobile
+  public breakpoint:any;
 
   constructor(
     public dialog: MatDialog,
@@ -39,37 +43,49 @@ export class AuctionComponent implements OnInit, OnDestroy {
   ) {}
 
   async ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
+    let countDownDate = new Date('Nov 4, 2020 00:00:00').getTime();
+    let now = new Date().getTime();
+    let distance = countDownDate - now;
+    if (distance <= 0) {
+      this.auctionFinished = true;
+    }
     const getLastOffer = await this.myAuctionService.checkLastOffer();
     if (getLastOffer[0] === undefined) {
       this.lastPriceProductCenter = 500;
-      this.lastOfferNameCenter = 'מור ממן';
-      return;
+      this.lastOfferNameCenter = 'אין הצעה';
+    }else{
+      this.lastPriceProductCenter = getLastOffer[0].Price;
+      this.lastOfferNameCenter =
+        getLastOffer[0].First_Name + ' ' + getLastOffer[0].Last_Name;
     }
-    this.lastPriceProductCenter = getLastOffer[0].Price;
-    this.lastOfferNameCenter = getLastOffer[0].First_Name + ' ' + getLastOffer[0].Last_Name;
-
     const getLastOfferLeft = await this.myAuctionService.checkLastOfferLeft();
     if (getLastOfferLeft[0] === undefined) {
       this.lastPriceProductLeft = 600;
-      this.lastOfferNameLeft = 'יוסי ממן';
-      return;
+      this.lastOfferNameLeft = 'אין הצעה';
+    }else{
+      this.lastPriceProductLeft = getLastOfferLeft[0].Price;
+      this.lastOfferNameLeft =
+        getLastOfferLeft[0].First_Name + ' ' + getLastOfferLeft[0].Last_Name;
     }
-    this.lastPriceProductLeft = getLastOfferLeft[0].Price;
-    this.lastOfferNameLeft = getLastOfferLeft[0].First_Name + ' ' + getLastOfferLeft[0].Last_Name;
-
     const getLastOfferRight = await this.myAuctionService.checkLastOfferRight();
     if (getLastOfferRight[0] === undefined) {
       this.lastPriceProductRight = 600;
-      this.lastOfferNameRight = 'ניל דהן';
-      return;
+      this.lastOfferNameRight = 'אין הצעה';
+    }else{
+      this.lastPriceProductRight = getLastOfferRight[0].Price;
+      this.lastOfferNameRight =
+        getLastOfferRight[0].First_Name + ' ' + getLastOfferRight[0].Last_Name;
     }
-    this.lastPriceProductRight = getLastOfferRight[0].Price;
-    this.lastOfferNameRight = getLastOfferRight[0].First_Name + ' ' + getLastOfferRight[0].Last_Name;
   }
 
   ngOnDestroy() {
     this.countDown = null;
+  }
+
+  public onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
   }
 
   // More info button for each product
