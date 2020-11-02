@@ -16,3 +16,8 @@
 .navbar-searchByAge > nav > a.active {
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-searchByAge{white-space: break-spaces;}
+  .navbar-searchByAge > nav > a{border: none;margin: 0px;font-size: 15px;}
+}

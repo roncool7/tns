@@ -16,3 +16,8 @@
 .navbar-rightCategories > nav > a.active {
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-rightCategories{display: table-cell;white-space: normal}
+  .navbar-rightCategories > nav > a {border: none;}
+}

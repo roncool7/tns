@@ -140,3 +140,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 18px;
   box-shadow: 0 0 0 3px white;
 }
+
+@media only screen and (max-width: 600px) {
+  .about-kitchens-dallhouses{display: block;}
+}

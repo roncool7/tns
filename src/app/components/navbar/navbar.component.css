@@ -115,3 +115,18 @@
   display: initial;
   vertical-align: text-top;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar {
+    display: revert;
+    font-size: 10px;
+    white-space: pre-wrap;
+    text-align: center;
+    font-variant-caps: all-small-caps;
+  }
+  .logoImage{display: none;}
+  .nabBarTitle{margin-left: 100px;}
+  .searchProduct{display: grid;}
+  .searchInput{width: auto;}
+  .material-icons{display: none;}
+}

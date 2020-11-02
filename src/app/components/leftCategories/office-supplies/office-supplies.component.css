@@ -36,3 +36,16 @@ p {
     border-right-color: transparent;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .imageAbout{width: 300px; height: 250px;}
+  p{font-size: 30px;}
+  @keyframes animated-text {
+    from {
+      width: 0;
+    }
+    to {
+      width: 320px;
+    }
+  }
+}

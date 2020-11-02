@@ -16,3 +16,8 @@
 .navbar-leftCategories > nav > a.active {
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  .navbar-leftCategories{display: table-cell;white-space: normal;}
+  .navbar-leftCategories > nav > a {border: none;display: inline-grid;}
+}

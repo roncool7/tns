@@ -542,3 +542,18 @@ p {
     0px -40px 0 3px #0b0a10, 0 17px 0 3px #0b0a10;
 }
 
+@media only screen and (max-width: 600px) {
+  .right-side-nav{margin-left: -190px;}
+  .left-side-nav{margin-right: -200px;}
+  .partA{height: 320px;}
+  .partB{display: none;}
+  .partC{height: 320px;}
+  .agesForMobile{height: 0px;}
+  .partTwo{height: 1200px;}
+  .partThree{height: 1300px;}
+  .imageAges{display: none;}
+  .rope{margin-top: -230px;}
+  .imageCategory1,.imageCategory2,.imageCategory3,.imageCategory4,.imageCategory5{
+    height: 70px;box-shadow: none;
+  }
+}

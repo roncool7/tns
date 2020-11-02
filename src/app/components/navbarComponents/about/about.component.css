@@ -57,3 +57,13 @@ p {
   box-shadow: 3px 3px 10px white;
   padding: 10px;
 }
+
+@media only screen and (max-width: 600px) {
+  .leftSide,.part-B-Image,.aboutOurStoreDesc{height: 300px;}
+  .material-icons{display: none;}
+  p{font-size: 13px;}
+  .imageCenterAbout{width: 80px; height: 140px;}
+  .about-store{margin: 0px;}
+  .about-store>p{font-size: 13px;}
+  .about-store>h2{font-size: 18px;}
+}

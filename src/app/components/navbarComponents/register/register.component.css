@@ -53,3 +53,11 @@
 .part-A,.part-C{
   height: 300px;
 }
+
+@media only screen and (max-width: 600px) {
+  .register{height: 1400px;}
+  .part-A,.part-C{display: block;}
+  .part-B-Form{height: 500px;}
+  .part-C{display: none;}
+  .images{width: 230px; height: 230px;margin-top: -120px;}
+}

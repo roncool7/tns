@@ -59,3 +59,16 @@ font-size: 18px;
 .loginLinks:hover{
   color: black;
 }
+
+@media only screen and (max-width: 600px) {
+  .login {
+    height: auto;
+  }
+  .imagesLogin {
+    width: 250px;
+    height: 300px;
+  }
+  .part-A-image {
+    height: 0px;
+  }
+}
