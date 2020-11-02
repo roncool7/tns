@@ -121,5 +121,5 @@
   .logoImage{display: none;}
   .searchProduct{display: grid;}
   .searchInput{width: auto;}
-  .material-icons{display: none;}
+  .material-icons{position: initial;}
 }

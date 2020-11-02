@@ -6,12 +6,11 @@
             <img class="searchImages" src="https://tns-be.herokuapp.com/backgrounds/searchRight.png" alt="טוען">
         </mat-grid-tile>
         <mat-grid-tile>
-                <mat-label>חפש מוצר שברצונך לרכוש</mat-label>
                 <input type="search"
-                       [placeholder]="'חיפוש מוצר'"
+                       [placeholder]="'חפש מוצר שברצונך לרכוש'"
                        [id]="'id'"
                        [(ngModel)]="searchValue"
-                       [formControl]="searchTerm">
+                       [formControl]="searchTerm" class="searchField">
         </mat-grid-tile>
         <mat-grid-tile>
             <img class="searchImages" src="https://tns-be.herokuapp.com/backgrounds/searchLeft.png" alt="טוען">
