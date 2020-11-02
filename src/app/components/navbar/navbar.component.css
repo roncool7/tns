@@ -78,7 +78,7 @@
 /* search product */
 .searchProduct {
   text-align: end;
-  margin-right: 20px;
+  margin-right: 10px;
   font-weight: bold;
 }
 .searchInput {
@@ -101,7 +101,7 @@
 }
 .aboutUs {
   display: inline-block;
-  margin-right: 70px;
+  margin-right: 30px;
 }
 .aboutUs:hover {
   color: white;
@@ -119,8 +119,8 @@
 @media only screen and (max-width: 600px) {
   .navbar {white-space: pre-wrap;text-align: center;display: initial;appearance: auto;}
   .logoImage{display: none;}
-  .searchProduct{display: grid;}
+  .searchProduct{display: table;text-align: center;}
   .searchInput{width: auto;}
   .material-icons{position: initial;}
-  .nabBarTitle{margin-left: 100px;}
+  .nabBarTitle{margin-left: 80px;}
 }

@@ -198,7 +198,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 @media only screen and (max-width: 600px) {
-  .auction{height: 3350px;}
+  .auction{height: 3450px;}
   .row{display: block;margin-top: 100px;}
   .imageAuction{height: 200px;width: 300px;}
   .part-A-Auction-rule{height: 60px;}
