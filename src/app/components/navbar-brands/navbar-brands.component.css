@@ -3,6 +3,7 @@
     background-color: white;
 }
 .navbar-all-brands>nav>a{
+  display: inline-table;
     color: cornflowerblue;
     font-weight: bold;
     text-decoration: none;
