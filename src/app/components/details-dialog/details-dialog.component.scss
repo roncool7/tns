@@ -7,7 +7,7 @@
     text-align: center;
     font-family: sans-serif;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
   }
 
   .content {
@@ -30,8 +30,10 @@
     justify-content: center;
 
     .button {
+      color: white;
       font-weight: bold;
-      border: 2px solid black;
+      border: 1px double white;
+      align-self: center;
     }
   }
 }

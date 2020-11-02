@@ -41,7 +41,7 @@ export class ProductActionsComponent implements OnInit{
   onDetailsClicked() {
     const dialogRef = this.dialog.open(DetailsDialogComponent, {
       data: {product: this.product},
-      disableClose: true,
+      disableClose: false,
       height: '400px',
       width: '600px',
     });

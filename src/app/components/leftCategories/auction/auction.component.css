@@ -110,9 +110,6 @@
 /* Dialog */
 ::ng-deep .mat-dialog-container {
   text-align: center;
-  width: 400px !important;
-  font-size: 20px;
-  border: 2px solid;
 }
 ::ng-deep .mat-dialog-title {
   font-weight: bold;
