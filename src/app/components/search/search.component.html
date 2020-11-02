@@ -1,7 +1,7 @@
 <div class="search">
     <app-heading>חיפוש מוצר</app-heading>
     <hr>
-    <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" rowHeight="2:1">
         <mat-grid-tile>
             <img class="searchImages" src="https://tns-be.herokuapp.com/backgrounds/searchRight.png" alt="טוען">
         </mat-grid-tile>

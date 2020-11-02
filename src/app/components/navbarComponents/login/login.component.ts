@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
   public loginForm: FormGroup;
   public hidePassword: boolean = true;
   public panelOpenState = false;
+  public breakpoint:any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -24,10 +25,15 @@ export class LoginComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     this.loginForm = this.formBuilder.group({
       Email: [this.login.Email, [Validators.required, Validators.email,Validators.maxLength(30)]],
       Password: [this.login.Password,[Validators.required,Validators.minLength(3),Validators.maxLength(20)]],
     });
+  }
+
+  public onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
   }
 
   // Login button

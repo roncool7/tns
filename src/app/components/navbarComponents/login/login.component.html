@@ -1,7 +1,7 @@
 <div class="login">
     <app-heading>כניסה לאתר</app-heading>
     <hr>
-    <mat-grid-list cols="3">
+    <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)">
         <mat-grid-tile class="part-A-image">
             <img class="imagesLogin" src="https://tns-be.herokuapp.com/images/login/leftSide.png" alt="left">
         </mat-grid-tile>

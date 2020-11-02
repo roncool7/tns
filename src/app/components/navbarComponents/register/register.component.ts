@@ -16,7 +16,9 @@ export class RegisterComponent implements OnInit {
   public hidePassword: boolean = true;
   public hideConfirmPassword: boolean = true;
   public captchaImg:boolean = false;
- 
+  public breakpoint:any;
+
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -26,6 +28,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     this.registerForm = this.formBuilder.group({
       First_Name: [this.customer.First_Name,[Validators.required,Validators.minLength(2),Validators.maxLength(10),Validators.pattern('^[\u05D0-\u05F3]+$')]],
       Last_Name: [this.customer.Last_Name,[Validators.required,Validators.minLength(2),Validators.maxLength(15),Validators.pattern("^[\u05D0-\u05F3]+(?: [\u05D0-\u05F3]+)*$")]],
@@ -38,6 +41,10 @@ export class RegisterComponent implements OnInit {
       validator: this.checkIfMatchingPasswords('Password', 'confirmPassword'),
     }
    );
+  }
+
+  public onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
   }
 
    // Check if same passwords
@@ -88,5 +95,5 @@ export class RegisterComponent implements OnInit {
   private openSnackBar(message: string, action: string):void {
     this.snackBar.open(message, action, {duration: 5000});
   }
-  
+
 }

@@ -1,7 +1,7 @@
 <div class="register">
   <app-heading>הרשמה לאתר</app-heading>
   <hr>
-  <mat-grid-list cols="3" class="allGrids">
+  <mat-grid-list [cols]="breakpoint" (window:resize)="onResize($event)" class="allGrids">
     <mat-grid-tile class="part-A">
       <div class="registerRules">
         <p>* אני מעל גיל 18 וקראתי את תקנון קנייה של האתר ואני מאשר את האמור בהם.</p>

@@ -16,6 +16,7 @@ import {debounceTime, distinctUntilChanged, filter} from "rxjs/operators";
 export class SearchComponent implements OnInit {
   public items: ProductModel[];
   public searchValue: string;
+  public breakpoint:any;
   searchTerm: FormControl = new FormControl();
 
   constructor(private mySearchService: SearchService) {
@@ -36,5 +37,9 @@ export class SearchComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;}
+
+  public onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
+  }
 }
