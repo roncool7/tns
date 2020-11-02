@@ -545,6 +545,9 @@ p {
 @media only screen and (max-width: 600px) {
   .right-side-nav{margin-left: -190px;}
   .left-side-nav{margin-right: -200px;}
+  .right-side-nav ul li a,
+  .left-side-nav ul li a {font-size: 13px;}
+  .iconAuction{display: none;}
   .partA{height: 320px;}
   .partB{display: none;}
   .partC{height: 320px;}

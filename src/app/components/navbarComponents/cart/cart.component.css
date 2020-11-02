@@ -16,6 +16,10 @@
   justify-content: space-around;
 }
 
+.nextLevel:disabled{
+  background-color: gray!important;
+}
+
 /* part a cart image */
 .part-A-Cart-image {
   padding-right: 50px;
@@ -108,7 +112,7 @@ th {
 }
 
 .table-container {
-  height: 480px;
+  height: 460px;
   overflow: auto;
 }
 
@@ -118,3 +122,18 @@ th {
   margin-top: 5px !important;
 }
 
+.totalPriceStageA{
+  background-color: white;
+  color: black;
+  align-self: center;
+  padding: 8px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+  .cart-container{display: block;}
+  .cart{height: auto;}
+  .delivery-container{display: block;}
+  .row{display: table-cell;}
+}
