@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./forget-password.component.css'],
 })
 export class ForgetPasswordComponent implements OnInit {
-  
+
   public login: LoginModel = new LoginModel();
   public loader: boolean = false;
   // Email
@@ -26,6 +26,8 @@ export class ForgetPasswordComponent implements OnInit {
   public hidePassword: boolean = true;
   public hideConfirmPassword: boolean = true;
   public resetPassForm:boolean = false;
+  // Responsive for mobile
+  public breakpoint:any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,6 +37,7 @@ export class ForgetPasswordComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     // Email form
     this.getEmailForm = this.formBuilder.group({
       Email: [this.login.Email,
@@ -54,6 +57,10 @@ export class ForgetPasswordComponent implements OnInit {
     },{
       validator: this.checkIfMatchingPasswords('Password', 'confirmPassword'),
     });
+  }
+
+  public onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 600) ? 1 : 3;
   }
 
   // Send email data
@@ -110,7 +117,7 @@ export class ForgetPasswordComponent implements OnInit {
   public sendNewPassword():void{
     this.loader = true;
     setTimeout(async() => {
-      const data = 
+      const data =
       {"newPass":this.newPasswordForm.value.Password,"customerEmail":this.getEmailForm.value}
       const response = await this.myAuthService.resetCustomerPass(data);
       if (response.toString() === 'Error') {
