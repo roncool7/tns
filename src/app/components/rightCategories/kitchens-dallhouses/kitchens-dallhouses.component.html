@@ -126,6 +126,18 @@
                     </mat-card>
                 </div>
             </mat-tab>
+            <mat-tab label="שולחנות איפור">
+                <div *ngFor="let product of kitchensDallhousesProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='שולחנות איפור'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="https://toysnonstop-images.s3.eu-west-3.amazonaws.com/assets/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <app-product-actions [product]="product"></app-product-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
         </mat-tab-group>
     </div>
 </div>

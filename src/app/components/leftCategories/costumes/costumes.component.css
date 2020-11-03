@@ -37,7 +37,7 @@ p {
 }
 
 @media only screen and (max-width: 600px) {
-  .costumes{height: 900px;}
+  .costumes{height: 850px;}
   .imageAbout{width: 300px; height: 250px;}
   p{font-size: 30px;}
   @keyframes animated-text {

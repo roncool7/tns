@@ -45,7 +45,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
-    let countDownDate = new Date('Nov 4, 2020 00:00:00').getTime();
+    let countDownDate = new Date('Dec 4, 2020 00:00:00').getTime();
     let now = new Date().getTime();
     let distance = countDownDate - now;
     if (distance <= 0) {

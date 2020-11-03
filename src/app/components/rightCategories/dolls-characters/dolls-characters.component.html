@@ -160,6 +160,18 @@
                     </mat-card>
                 </div>
             </mat-tab>
+            <mat-tab label="עגלות לבובה">
+                <div *ngFor="let product of dollsCharactersProducts" class="allProducts">
+                    <mat-card *ngIf="product.Product_Category==='עגלות'">
+                        <mat-card-header>
+                            <mat-card-title>{{product.Product_Name}}</mat-card-title>
+                        </mat-card-header>
+                        <img mat-card-image src="https://toysnonstop-images.s3.eu-west-3.amazonaws.com/assets/products/{{product.Product_Image}}" alt="מוצרים">
+                        <div class="price">₪{{product.Product_Price}} :מחיר</div>
+                        <app-product-actions [product]="product"></app-product-actions>
+                    </mat-card>
+                </div>
+            </mat-tab>
             <mat-tab label="ענקיות">
                 <div *ngFor="let product of dollsCharactersProducts" class="allProducts">
                     <mat-card *ngIf="product.Product_Category==='בובות ענקיות'">
