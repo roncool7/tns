@@ -21,7 +21,7 @@ export class KitchensDallhousesComponent implements OnInit {
     setTimeout(async () => {
       this.kitchensDallhousesProducts = await this.myProductsService.getKitchensDallhousesProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

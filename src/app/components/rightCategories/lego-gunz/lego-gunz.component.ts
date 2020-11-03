@@ -21,7 +21,7 @@ export class LegoGunzComponent implements OnInit {
     setTimeout(async () => {
       this.legoGunzProducts = await this.myProductsService.getLegoGunzProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

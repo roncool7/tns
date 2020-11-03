@@ -21,7 +21,7 @@ export class OnWheelsComponent implements OnInit {
     setTimeout(async () => {
       this.onWheelsProducts = await this.myProductsService.getWheelsProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

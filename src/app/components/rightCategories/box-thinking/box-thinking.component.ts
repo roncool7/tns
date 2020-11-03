@@ -21,7 +21,7 @@ export class BoxThinkingComponent implements OnInit {
     setTimeout(async () => {
       this.boxThinkingProducts = await this.myProductsService.getBoxThinkingProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

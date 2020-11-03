@@ -21,7 +21,7 @@ export class SportsCourtyardComponent implements OnInit {
     setTimeout(async () => {
       this.sportsCourtyardProducts = await this.myProductsService.getSportsCourtyardProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

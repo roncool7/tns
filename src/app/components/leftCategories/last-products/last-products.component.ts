@@ -21,7 +21,7 @@ export class LastProductsComponent implements OnInit {
     setTimeout(async () => {
       this.lastProducts = await this.myProductsService.getLastProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

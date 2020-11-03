@@ -21,7 +21,7 @@ export class BirthdayComponent implements OnInit {
     setTimeout(async () => {
       this.birthdayProducts = await this.myProductsService.getBirthdayProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

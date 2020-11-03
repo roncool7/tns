@@ -21,7 +21,7 @@ export class OnRemoteComponent implements OnInit {
     setTimeout(async () => {
       this.onRemoteProducts = await this.myProductsService.getRemoteProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

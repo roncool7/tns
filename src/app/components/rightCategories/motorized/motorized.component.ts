@@ -21,7 +21,7 @@ export class MotorizedComponent implements OnInit {
     setTimeout(async () => {
       this.motorizedProducts = await this.myProductsService.getMotorizedProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

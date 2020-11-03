@@ -22,7 +22,7 @@ export class RecommendedComponent implements OnInit {
     setTimeout(async () => {
       this.recommendedProducts = await this.myProductsService.getRecommendedProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

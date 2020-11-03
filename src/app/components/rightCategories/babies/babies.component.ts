@@ -21,7 +21,7 @@ export class BabiesComponent implements OnInit {
     setTimeout(async () => {
       this.babiesProducts = await this.myProductsService.getBabiesProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 

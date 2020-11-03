@@ -21,7 +21,7 @@ export class PopCreationComponent implements OnInit {
     setTimeout(async () => {
       this.popCreationProducts = await this.myProductsService.getPopCreationProducts();
       this.loader = false;
-    }, 3000);
+    }, 2000);
   }
 
 
