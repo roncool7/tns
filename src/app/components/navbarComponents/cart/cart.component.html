@@ -3,8 +3,8 @@
   <app-heading>העגלה שלי</app-heading>
   <hr>
   <div class="cartMessages">
-    <p>זמן האספקה הינו עד 7 ימי עסקים (לא כולל שישי, שבת, ערבי חג וחג)</p>
-    <p>בעקבות המצב: באזורים בהם קיים סגר- יתכנו עיכובים בזמני האספקה</p>
+    <p>.הסדרת התשלום מתבצעת טלפונית,בסיום ההזמנה נציג החנות יצור עימכם קשר בכדי להסדיר את התשלום</p>
+    <p>הזמנות בימי שישי ושבת, נציג החנות יצור עימכם קשר ביום ראשון</p>
     <p *ngIf="totalPrice < 50 && totalPrice > 0">מינימום להזמנה באתר ₪50</p>
   </div>
   <div *ngIf="step === 1" class="cart-container">
@@ -13,6 +13,7 @@
     </div>
     <div *ngIf="products.length">
       <div class="table-container">
+        <div class="forMobileCart">החלק ימינה ושמאלה בכדי לראות הכל</div>
         <table mat-table [dir]="'rtl'" [dataSource]="products" class="mat-elevation-z8" style="min-width: 700px;">
         <ng-container matColumnDef="Product_Image">
           <th mat-header-cell *matHeaderCellDef> תמונה</th>
@@ -82,6 +83,7 @@
   </div>
   <div *ngIf="step === 2" class="delivery-container">
     <div>
+      <div class="forMobileCart">החלק ימינה ושמאלה בכדי לראות הכל</div>
       <div style="background-color: white;padding: 7px;border-radius: 10px;margin: 10px; overflow: auto; height: 250px;">
         <table mat-table [dir]="'rtl'" [dataSource]="products" class="mat-elevation-z8" style="width: 500px">
           <ng-container matColumnDef="Product_Image">

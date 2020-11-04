@@ -136,4 +136,8 @@ th {
   .cart{height: auto;}
   .delivery-container{display: block;}
   .row{display: table-cell;}
+  .forMobileCart{display:block;color: white;font-weight: bold;margin-top: 10px;}
+}
+@media only screen and (min-width: 601px){
+  .forMobileCart { display: none; }
 }
