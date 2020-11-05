@@ -82,9 +82,34 @@
   text-shadow: 0px 0px 3px black;
 }
 
+/* letter text */
+.element {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.element:after {
+  animation: changeLetter 4s linear infinite alternate;
+  display: block;
+  content: "A";
+  font-size: 35px;
+}
+
+@keyframes changeLetter {
+  0% {
+    content: "?מתלבטים? רוצים לדעת עוד על מוצר";
+  }
+  50% {
+    color: white;
+  }
+  100% {
+    content: "התקשרו עכשיו! ונציג החנות יעזור לכם";
+  }
+}
 @media only screen and (max-width: 600px) {
   .footer{display: block;}
   .homePageBtn{display: none;}
   .footer-copyright{display: none;}
   .toysImage{margin-right:50px;}
+  .element{text-align: center;}
 }
