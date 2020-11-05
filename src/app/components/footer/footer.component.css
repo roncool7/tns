@@ -111,5 +111,5 @@
   .homePageBtn{display: none;}
   .footer-copyright{display: none;}
   .toysImage{margin-right:50px;}
-  .element{text-align: center;}
+  .element{display: none;}
 }
