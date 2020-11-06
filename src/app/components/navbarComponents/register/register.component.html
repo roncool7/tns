@@ -79,7 +79,7 @@
           <mat-error *ngIf="registerForm.get('confirmPassword')?.errors?.notEquivalent">סיסמאות לא שוות</mat-error>
         </mat-form-field><br><br>
 
-       <!-- <re-captcha (resolved)="resolved($event)" siteKey="6LdTXNEZAAAAAITpu7EwVH4Y8bsEJXbaaVYqvNrg"></re-captcha><br> -->
+       <re-captcha (resolved)="resolved($event)" siteKey="6Lfj698ZAAAAAJHqDLZFWJPYp2--oJVB1B0OHr4S"></re-captcha><br>
 
         <button mat-button type="submit" class="mat-raised-button mat-primary registerBtn" [disabled]="!registerForm.valid || !captchaImg">הרשם
           עכשיו!</button><br><br>
