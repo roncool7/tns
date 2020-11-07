@@ -58,9 +58,9 @@ export class CartService {
     this.productsDict = {};
   }
 
-  checkOut(details, deliveryOption) {
+  checkOut(details, deliveryOption,totalPrice) {
     return this.myHttpClient
-      .post<ContactModel>(cartBaseUrl + "/checkout", {products: this.products, details, deliveryOption: deliveryOption.title})
+      .post<ContactModel>(cartBaseUrl + "/checkout", {products: this.products, details, deliveryOption: deliveryOption.title,totalPrice:totalPrice})
       .toPromise();
   }
 }

@@ -91,7 +91,7 @@ export class CartComponent implements OnInit {
   }
 
   async onSubmit() {
-    const res = await this.cartService.checkOut(this.deliveryForm.value, this.deliveryOption);
+    const res = await this.cartService.checkOut(this.deliveryForm.value, this.deliveryOption,this.totalPrice);
 
     if (res !== 'Success') {
       this.snackBar.open('נסה שנית', 'שגיאה', {duration: 5000});
