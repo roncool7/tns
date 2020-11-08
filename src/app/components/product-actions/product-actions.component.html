@@ -5,8 +5,9 @@
     <button class="plus" (click)="setAmount(1)" [disabled]="amount >= 10 || isInCart"></button>
   </div>
   <br>
-  <button mat-raised-button *ngIf="product.Product_In_Stock != 0 && isInCart === false" class="addToCartBtn" (click)="onAddToCart()">הוספה לעגלה</button>
+  <button mat-raised-button *ngIf="product.Product_In_Stock != 0 && product.Product_In_Stock != 99 && isInCart === false" class="addToCartBtn" (click)="onAddToCart()">הוספה לעגלה</button>
   <button mat-raised-button *ngIf="isInCart === true" class="inCart">המוצר בעגלה</button>
   <button mat-raised-button class="soldOut" *ngIf="product.Product_In_Stock === 0">אזל המלאי</button>
+  <button mat-raised-button color="accent" *ngIf="product.Product_In_Stock === 99" (click)="goToAction()">במכירה פומבית</button>
   <button mat-raised-button color="primary" (click)="onDetailsClicked()">מידע נוסף</button>
 </mat-card-actions>

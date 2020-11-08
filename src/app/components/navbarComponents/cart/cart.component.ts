@@ -36,8 +36,6 @@ export class CartComponent implements OnInit {
   deliveryOption;
   deliveryOptions = [
     {title: 'משלוח רגיל-עד 5 ימי עסקים שליח עד הבית 30 ₪', price: 30},
-    {title: 'משלוח מהיר-עד 3 ימי עסקים שליח עד הבית 45 ₪', price: 45},
-    {title: 'משלוח אקספרס-מהיום להיום שליח עד הבית(מוגבל-לאזורים) 55 ₪', price: 55},
     {title: 'איסוף עצמי-תחנה מרכזית דימונה', price: 0}];
 
   constructor(private cartService: CartService,
@@ -75,15 +73,15 @@ export class CartComponent implements OnInit {
   }
 
   next() {
-    if (this.totalPrice > 300) {
-      this.deliveryOptions = [{title: 'משלוח חינם בקנייה מעל 300 ש״ח', price: 0}].concat(this.deliveryOptions);
+    if (this.totalPrice > 299) {
+      this.deliveryOptions = [{title: 'משלוח חינם בקנייה מעל 299 ש״ח עד 5 ימי עסקים', price: 0}].concat(this.deliveryOptions);
       this.deliveryOption = this.deliveryOptions[0];
     }
     this.step = 2;
   }
 
   back() {
-    if (this.totalPrice > 300) {
+    if (this.totalPrice > 299) {
       this.deliveryOptions = this.deliveryOptions.slice(1);
       this.deliveryOption = this.deliveryOptions[0];
     }

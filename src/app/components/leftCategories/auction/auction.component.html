@@ -41,14 +41,14 @@
     <div class="row">
         <div class="product-auction">
             <div class="product-image">
-                <img src="https://tns-be.herokuapp.com/images/left-side-categories/auction/33.jpg" alt="left">
+                <img src="https://tns-be.herokuapp.com/images/left-side-categories/auction/34.jpg" alt="left">
                 <span class="productOfTheWeek">מוצר החודש</span>
             </div>
             <div class="product-content">
                 <div class="time">{{counter | formatTime}}</div>
                 <span class="product-priceNow">הצעה אחרונה: ₪{{lastPriceProductLeft}}</span>
                 <span class="product-last-offer-name">שם המציע: {{lastOfferNameLeft}}</span>
-                <h3 class="title">חיפושית ורודה 12 וואלט</h3>
+                <h3 class="title">מכונית פורשה ורודה</h3>
                 <button mat-button *ngIf="!auctionFinished" class="makeOffer mat-raised-button" (click)="openNewOfferLeft()">הצע מחיר</button>
                 <button mat-button class="makeOffer mat-raised-button" (click)="openDialogLeft()">מידע נוסף</button>
             </div>
@@ -69,14 +69,14 @@
         </div>
         <div class="product-auction">
             <div class="product-image">
-                <img src="https://tns-be.herokuapp.com/images/left-side-categories/auction/509.jpg" alt="right">
+                <img src="https://tns-be.herokuapp.com/images/left-side-categories/auction/1075.jpg" alt="right">
                 <span class="productOfTheWeek">מוצר החודש</span>
             </div>
             <div class="product-content">
                 <div class="time">{{counter | formatTime}}</div>
                 <span class="product-priceNow">הצעה אחרונה: ₪{{lastPriceProductRight}}</span>
                 <span class="product-last-offer-name">שם המציע: {{lastOfferNameRight}}</span>
-                <h3 class="title">בית בובות ענק מעץ</h3>
+                <h3 class="title">משאית טריילר שחורה</h3>
                 <button mat-button *ngIf="!auctionFinished" class="makeOffer mat-raised-button" (click)="openNewOfferRight()">הצע מחיר</button>
                 <button mat-button class="makeOffer mat-raised-button" (click)="openDialogRight()" >מידע נוסף</button>
             </div>
@@ -86,11 +86,9 @@
 
 <!-- More info dialogs -->
 <ng-template #moreInfoLeft>
-    <h1 mat-dialog-title>חיפושית ורודה 12 וואלט</h1>
+    <h1 mat-dialog-title>מכונית פורשה ורודה</h1>
     <div mat-dialog-content>
-        ממונע חיפושית ורודה 12 וואלט אשר כוללת מושב מרופד דמוי עור,דלתות נפתחות,תאורת לד בפנסים קדימה ואחורה,כרטיס
-        זכרון,
-        חיבור לאוקס,וחגורות בטיחות הערה: מתאים לגילאי 1 עד 5</div>
+        ממונע דגם פורשה קאררה ורודה 12 וואלט אשר כוללת דלתות נפתחות למעלה,תאורת לד,מוזיקה מובנת,מושב מרופד,חגורות בטיחות ומסך גדול לסרטים ושירים אמפי4 הערה: מתאים לגילאי 1 עד 5</div>
     <div mat-dialog-actions>
         <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
     </div>
@@ -107,12 +105,8 @@
 </ng-template>
 
 <ng-template #moreInfoRight>
-    <h1 mat-dialog-title>בית בובות ענק מעץ</h1>
-    <div mat-dialog-content>
-        בית בובות ענק ומפואר 3 קומות, 5 חדרים,לבית הבובות הענק והמפואר 5 חדרים ב 2 מתחמים עם גרם מדרגות מרכזי קירות הבית
-        מצוירים ומעניקים אווירה ביתית מרהיבה,בית הבובות כולל תאורת חוץ, פסנתר מנגן, אסלה עם אפקטים ועוד. הבית כולל מתחם
-        חוץ עם בריכת שחיה, מיטת שיזוף וגריל כולל מעלית הניתנת להסעה למעלה / למטה על גבי שלושת הקומות,מידות הבית במצב
-        מורכב: רוחב 117.47 ס`מ*עומק 64 ס`מ*גובה 125 ס`מ עם בריכת שחיה ומעלית</div>
+    <h1 mat-dialog-title>משאית טריילר שחורה</h1>
+    <div mat-dialog-content>ממונע משאית טריילר מסוג מרצדס לילדים בצבע שחור, שלט חכם,הגה עם מנגינות,דלתות נפתחות,חגורת בטיחות תא אחסון ועוד הערה: מתאים לגילאי 1 עד 5</div>
     <div mat-dialog-actions>
         <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
     </div>
@@ -120,7 +114,7 @@
 
 <!-- Customer make new offer to product -->
 <ng-template #makeNewOfferLeft>
-    <h1 mat-dialog-title>הצעת מחיר ל-ממונע חיפושית</h1>
+    <h1 mat-dialog-title>הצעת מחיר ל-ממונע פורשה ורודה</h1>
     <div mat-dialog-content>
         <div class="offerRules">
             <div>המחיר הנוכחי: ₪{{lastPriceProductLeft}}</div>
@@ -138,7 +132,7 @@
     </div>
     <div mat-dialog-actions>
         <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
-        <button class="newOfferBtn" mat-button (click)="offerNowLeft(offerLeft.value,33)">הצע מחיר</button>
+        <button class="newOfferBtn" mat-button (click)="offerNowLeft(offerLeft.value,34)">הצע מחיר</button>
     </div>
 </ng-template>
 
@@ -166,7 +160,7 @@
 </ng-template>
 
 <ng-template #makeNewOfferRight>
-    <h1 mat-dialog-title>הצעת מחיר ל-בית בובות ענק</h1>
+    <h1 mat-dialog-title>הצעת מחיר ל-משאית טריילר שחורה</h1>
     <div mat-dialog-content>
         <div class="offerRules">
             <div>המחיר הנוכחי: ₪{{lastPriceProductRight}}</div>
@@ -184,6 +178,6 @@
     </div>
     <div mat-dialog-actions>
         <button class="closeDialogBtn" mat-button mat-dialog-close>סגור</button>
-        <button class="newOfferBtn" mat-button (click)="offerNowRight(offerRight.value,509)">הצע מחיר</button>
+        <button class="newOfferBtn" mat-button (click)="offerNowRight(offerRight.value,1075)">הצע מחיר</button>
     </div>
 </ng-template>

@@ -45,7 +45,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
   async ngOnInit() {
     this.breakpoint = (window.innerWidth <= 600) ? 1 : 3;
     this.countDown = timer(0, this.tick).subscribe(() => --this.counter);
-    let countDownDate = new Date('Dec 4, 2020 00:00:00').getTime();
+    let countDownDate = new Date('Dec 9, 2020 00:00:00').getTime();
     let now = new Date().getTime();
     let distance = countDownDate - now;
     if (distance <= 0) {
@@ -53,7 +53,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     }
     const getLastOffer = await this.myAuctionService.checkLastOffer();
     if (getLastOffer[0] === undefined) {
-      this.lastPriceProductCenter = 500;
+      this.lastPriceProductCenter = 800;
       this.lastOfferNameCenter = 'אין הצעה';
     }else{
       this.lastPriceProductCenter = getLastOffer[0].Price;
@@ -62,7 +62,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     }
     const getLastOfferLeft = await this.myAuctionService.checkLastOfferLeft();
     if (getLastOfferLeft[0] === undefined) {
-      this.lastPriceProductLeft = 600;
+      this.lastPriceProductLeft = 800;
       this.lastOfferNameLeft = 'אין הצעה';
     }else{
       this.lastPriceProductLeft = getLastOfferLeft[0].Price;
@@ -71,7 +71,7 @@ export class AuctionComponent implements OnInit, OnDestroy {
     }
     const getLastOfferRight = await this.myAuctionService.checkLastOfferRight();
     if (getLastOfferRight[0] === undefined) {
-      this.lastPriceProductRight = 600;
+      this.lastPriceProductRight = 1300;
       this.lastOfferNameRight = 'אין הצעה';
     }else{
       this.lastPriceProductRight = getLastOfferRight[0].Price;

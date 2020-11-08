@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {Component, Input, OnInit} from '@angular/core';
 import {ProductModel} from '../../models/product-model';
 import {CartService} from '../../services/cart.service';
@@ -19,7 +20,8 @@ export class ProductActionsComponent implements OnInit{
 
   constructor(private cartService: CartService,
               private dialog: MatDialog,
-              private snackBar: MatSnackBar) { }
+              private snackBar: MatSnackBar,
+              private router:Router) { }
 
   ngOnInit() {
     this.actualAmount = this.cartService.getProductAmount(this.product);
@@ -45,5 +47,9 @@ export class ProductActionsComponent implements OnInit{
       height: '400px',
       width: '600px',
     });
+  }
+
+  public goToAction():void{
+    this.router.navigateByUrl("/auction");
   }
 }
