@@ -1,5 +1,7 @@
 import { NavigationEnd, Router } from '@angular/router';
 import { Component, HostListener, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-layout',
@@ -9,7 +11,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class LayoutComponent implements OnInit {
   public isShow: boolean;
 
-  // Top button get value when scroll
+  // Top button get value when scroll gtag('config', 'G-0XVTPX1GRK');
   @HostListener('window:scroll', ['$event']) onWindowScroll(e) {
     if (e.target['scrollingElement'].scrollTop > 100) {
       this.isShow = true;
@@ -18,10 +20,19 @@ export class LayoutComponent implements OnInit {
     }
   }
 
-  constructor(private router: Router) {}
+  constructor(private router: Router,private titleService: Title) {}
 
   // Scroll to top when route change
   ngOnInit() {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        (<any>window).gtag('config', 'G-0XVTPX1GRK', {
+          'page_title' : this.titleService.getTitle(),
+          'page_path': event.urlAfterRedirects
+        });
+      }
+    });
+
     this.router.events.subscribe((evt) => {
       if (!(evt instanceof NavigationEnd)) {
         return;
