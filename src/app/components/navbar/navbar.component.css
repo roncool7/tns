@@ -122,5 +122,5 @@
   .searchProduct{display: table;text-align: center;}
   .searchInput{width: auto;}
   .material-icons{position: relative;}
-  .nabBarTitle{margin-left: auto;}
+  .nabBarTitle{text-align: center;}
 }
