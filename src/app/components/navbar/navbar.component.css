@@ -121,6 +121,6 @@
   .logoImage{display: none;}
   .searchProduct{display: table;text-align: center;}
   .searchInput{width: auto;}
-  .material-icons{position: initial;}
+  .material-icons{position: relative;}
   .nabBarTitle{margin-left: 80px;}
 }

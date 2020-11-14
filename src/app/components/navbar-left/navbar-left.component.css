@@ -19,5 +19,5 @@
 
 @media only screen and (max-width: 600px) {
   .navbar-leftCategories{display: table-cell;white-space: normal;}
-  .navbar-leftCategories > nav > a {border: none;}
+  .navbar-leftCategories > nav > a {border: none;margin: 0px;}
 }
