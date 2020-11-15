@@ -118,9 +118,10 @@
 
 @media only screen and (max-width: 600px) {
   .navbar {white-space: pre-wrap;text-align: center;display: initial;appearance: auto;}
-  .logoImage{display: none;}
+  .logoImage{width: 40px;height: 40px;}
   .searchProduct{display: table;text-align: center;}
   .searchInput{width: auto;}
   .material-icons{position: relative;}
-  .nabBarTitle{text-align: center;}
+  .nabBarTitle{text-align: center;justify-content: center;}
+  .welcomeText{font-size: 20px;}
 }
