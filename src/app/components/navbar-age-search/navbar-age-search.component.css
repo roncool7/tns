@@ -1,5 +1,6 @@
 .navbar-searchByAge {
   background-color: white;
+  justify-content: center;
 }
 .navbar-searchByAge > nav > a {
   color: cornflowerblue;

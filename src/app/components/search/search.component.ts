@@ -5,7 +5,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {DetailsDialogComponent} from "../details-dialog/details-dialog.component";
 import {FormControl} from "@angular/forms";
 import {isString} from "util";
-import {debounceTime, distinctUntilChanged, filter} from "rxjs/operators";
+import {debounceTime, filter} from "rxjs/operators";
 
 
 @Component({
@@ -22,7 +22,6 @@ export class SearchComponent implements OnInit {
   constructor(private mySearchService: SearchService) {
     this.searchTerm.valueChanges.pipe(
       debounceTime(250),
-      distinctUntilChanged(),
       filter((input) => !!input && isString(input))
     ).subscribe(async input => {
       try {

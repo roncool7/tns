@@ -1,6 +1,6 @@
 /* navbar */
 .navbar {
-  justify-content: flex-end;
+  justify-content: center;
   background-color: white;
   height: 50px;
 }
@@ -77,7 +77,7 @@
 
 /* search product */
 .searchProduct {
-  text-align: end;
+  text-align: center;
   margin-right: 10px;
   font-weight: bold;
 }

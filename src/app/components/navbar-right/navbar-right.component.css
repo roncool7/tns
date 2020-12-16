@@ -1,5 +1,6 @@
 .navbar-rightCategories {
   background-color: white;
+  justify-content: center;
 }
 .navbar-rightCategories > nav > a {
   color: cornflowerblue;
